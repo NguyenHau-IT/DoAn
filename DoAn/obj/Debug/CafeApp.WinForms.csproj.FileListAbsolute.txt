@@ -1,0 +1,7 @@
+C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\CafeApp.WinForms.csproj.AssemblyReference.cache
+C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\CafeApp.WinForms.UserForm.resources
+C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.Properties.Resources.resources
+C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\CafeApp.WinForms.csproj.GenerateResource.cache
+C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\CafeApp.WinForms.csproj.CoreCompileInputs.cache
+C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.exe
+C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.pdb

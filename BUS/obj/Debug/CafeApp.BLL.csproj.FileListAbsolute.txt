@@ -1,0 +1,15 @@
+C:\Users\dtnhn\source\repos\DoAn\BUS\obj\Debug\CafeApp.BLL.csproj.AssemblyReference.cache
+C:\Users\dtnhn\source\repos\DoAn\BUS\obj\Debug\CafeApp.BLL.csproj.CoreCompileInputs.cache
+C:\Users\dtnhn\source\repos\DoAn\BUS\obj\Debug\BUS.dll
+C:\Users\dtnhn\source\repos\DoAn\BUS\obj\Debug\BUS.pdb
+C:\Users\dtnhn\source\repos\DoAn\BUS\bin\Debug\BUS.dll.config
+C:\Users\dtnhn\source\repos\DoAn\BUS\bin\Debug\BUS.dll
+C:\Users\dtnhn\source\repos\DoAn\BUS\bin\Debug\BUS.pdb
+C:\Users\dtnhn\source\repos\DoAn\BUS\bin\Debug\DAL.dll
+C:\Users\dtnhn\source\repos\DoAn\BUS\bin\Debug\EntityFramework.dll
+C:\Users\dtnhn\source\repos\DoAn\BUS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dtnhn\source\repos\DoAn\BUS\bin\Debug\DAL.pdb
+C:\Users\dtnhn\source\repos\DoAn\BUS\bin\Debug\DAL.dll.config
+C:\Users\dtnhn\source\repos\DoAn\BUS\bin\Debug\EntityFramework.xml
+C:\Users\dtnhn\source\repos\DoAn\BUS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\dtnhn\source\repos\DoAn\BUS\obj\Debug\CafeApp..C5B16CA9.Up2Date
