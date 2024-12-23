@@ -19,24 +19,29 @@ namespace DoAn
 
         private string selectedBillId = "";
 
-        private OrderDetail_BUS orderDetail_BUS = new OrderDetail_BUS();
+        private Order_BUS order_BUS = new Order_BUS();
 
         public Bill_Management()
         {
             InitializeComponent();
         }
 
-        public void loadcmbODID()
+        public void loadcmbOD()
         {
-            var orderdetailID = orderDetail_BUS.GetALLOrderDetails();
+            var orderID = order_BUS.GetALLOrders();
 
-            if (orderdetailID != null && orderdetailID.Any())
+            if (orderID != null && orderID.Any())
             {
-                cmbODID.DataSource = orderdetailID;
-                cmbODID.DisplayMember = "OrderDetailID";
-                cmbODID.ValueMember = "OrderDetailID";
+                cmbOD.DataSource = orderID;
+                cmbOD.DisplayMember = "OrderID";
+                cmbOD.ValueMember = "OrderID";
             }
 
+        }
+
+        public  void loadcmb()
+        {
+            cmbStatus.DataSource = new List<string> { "Đã thanh toán", "Chưa thanh toán"};
         }
 
         public void loadData()
@@ -45,41 +50,50 @@ namespace DoAn
             dgvBill.DataSource = bills;
 
             dgvBill.Columns["BillID"].HeaderText = "Mã hoá đơn";
-            dgvBill.Columns["OrderDetailID"].HeaderText = "Mã chi tiết order";
+            dgvBill.Columns["OrderDetailID"].HeaderText = "Mã order";
             dgvBill.Columns["PaymentDate"].HeaderText = "Ngày thanh toán";
             dgvBill.Columns["PaymentStatus"].HeaderText = "Trạng thái thanh toán";
             dgvBill.Columns["Total"].HeaderText = "Tổng";
-
-            cmbStatus.Items.Add("Đã thanh toán");
-            cmbStatus.Items.Add("Chưa thanh toán");
         }
 
         private void Bill_Management_Load(object sender, EventArgs e)
         {
             loadData();
-            loadcmbODID();
+            loadcmbOD();
+            loadcmb();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                // Kiểm tra và chuyển đổi dữ liệu đầu vào
-                if (!int.TryParse(txtBillID.Text, out int billID))
+                if (string.IsNullOrWhiteSpace(txtBillID.Text) || !int.TryParse(txtBillID.Text, out int billID))
                 {
                     MessageBox.Show("BillID phải là số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                if (!int.TryParse(cmbODID.Text, out int orderDetailID))
+                if (string.IsNullOrWhiteSpace(cmbOD.Text) || !int.TryParse(cmbOD.Text, out int orderDetailID))
                 {
                     MessageBox.Show("OrderDetailID phải là số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                if (!decimal.TryParse(txtTotal.Text, out decimal total))
+                if (string.IsNullOrWhiteSpace(txtTotal.Text) || !int.TryParse(txtTotal.Text, out int total))
                 {
-                    MessageBox.Show("Total phải là số thập phân!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Total phải là số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (cmbStatus.SelectedValue.ToString() == null)
+                {
+                    MessageBox.Show("Vui lòng chọn trạng thái thanh toán!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (bill_BUS == null)
+                {
+                    MessageBox.Show("bill_BUS chưa được khởi tạo!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -94,12 +108,20 @@ namespace DoAn
 
                 bill_BUS.AddBill(bill);
 
-                loadData();
+                try
+                {
+                    loadData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi tải dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
 
@@ -141,13 +163,13 @@ namespace DoAn
                 return;
             }
 
-            if (!int.TryParse(cmbODID.Text, out int orderDetailID))
+            if (!int.TryParse(cmbOD.Text, out int orderDetailID))
             {
                 MessageBox.Show("OrderDetailID phải là số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!decimal.TryParse(txtTotal.Text, out decimal total))
+            if (!int.TryParse(txtTotal.Text, out int total))
             {
                 MessageBox.Show("Total phải là số thập phân!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -209,7 +231,7 @@ namespace DoAn
 
                 selectedBillId = row.Cells["BillID"].Value?.ToString() ?? string.Empty;
                 txtBillID.Text = selectedBillId;
-                cmbODID.Text = row.Cells["OrderDetailID"].Value?.ToString() ?? string.Empty;
+                cmbOD.Text = row.Cells["OrderDetailID"].Value?.ToString() ?? string.Empty;
 
                 if (DateTime.TryParse(row.Cells["PaymentDate"].Value?.ToString(), out DateTime paymentDate))
                 {
@@ -219,12 +241,6 @@ namespace DoAn
                 {
                     MessageBox.Show("Ngày thanh toán không hợp lệ.", "Thông báo");
                 }
-
-                cmbStatus.Items.Clear();
-                string status = row.Cells["PaymentStatus"]?.Value?.ToString() ?? string.Empty;
-                cmbStatus.Items.Add(status);
-                cmbStatus.SelectedIndex = 0;
-                txtTotal.Text = ((decimal)row.Cells["Total"].Value).ToString();
             }
         }
 
@@ -243,5 +259,18 @@ namespace DoAn
             }
         }
 
+        private void btnCalculateTotal_Click(object sender, EventArgs e)
+        {
+            int orderId;
+            if (int.TryParse(cmbOD.SelectedValue.ToString(), out orderId))
+            {
+                int total = bill_BUS.CalculateTotal(orderId);
+                txtTotal.Text = total.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập một OrderID hợp lệ.");
+            }
+        }
     }
 }

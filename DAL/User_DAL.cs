@@ -75,6 +75,23 @@ namespace DAL
             }
         }
 
+        public bool CheckRole(string username)
+        {
+            using (var context = new Cafe_Context())
+            {
+                var user = context.Users.FirstOrDefault(u => u.UserName == username);
+
+                if (user != null)
+                {
+                    if (user.RoleID == "R1")
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
         public String GetName(string username)
         {
             try
@@ -106,10 +123,10 @@ namespace DAL
                             where u.UserName == username
                             select new
                             {
-                                u.FullName,
-                                u.Phone,
-                                u.IdentityCard,
-                                r.RoleName
+                                FullName = u.FullName,
+                                Phone = u.Phone,
+                                IdentityCard = u.IdentityCard,
+                                RoleName = r.RoleName
                             }).FirstOrDefault();
                 return user;
             }

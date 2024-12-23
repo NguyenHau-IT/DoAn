@@ -12,7 +12,7 @@ namespace BUS
     {
         private Order_DAL order_DAL = new Order_DAL();
 
-        public List<Order> GetALLOrders()
+        public List<dynamic> GetALLOrders()
         {
             return order_DAL.GetAllOrders();
         }

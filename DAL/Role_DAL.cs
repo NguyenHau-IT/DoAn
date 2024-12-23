@@ -33,7 +33,6 @@ namespace DAL
                 var existingRoles = context.Roles.Find(role.RoleID);
                 if (existingRoles != null)
                 {
-                    existingRoles.RoleID = role.RoleID;
                     existingRoles.RoleID = role.RoleName;
                     context.SaveChanges();
                 }

@@ -27,3 +27,5 @@ C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.Login.resources
 C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.CF_Table_Management.resources
 C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.Area_Management.resources
 C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.InforUser.resources
+C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.Order_Management.resources
+C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.OrderDetail_Management.resources

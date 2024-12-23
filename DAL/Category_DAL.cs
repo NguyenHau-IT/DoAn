@@ -28,7 +28,6 @@ public class Category_DAL
             var existingCategory = context.Categories.Find(category.CategoryID);
             if (existingCategory != null)
             {
-                existingCategory.CategoryID = category.CategoryID;
                 existingCategory.CategoryName = category.CategoryName;
                 context.SaveChanges();
             }

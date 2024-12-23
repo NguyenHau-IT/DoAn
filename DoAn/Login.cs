@@ -20,6 +20,8 @@ namespace DoAn
         
         public bool kt;
 
+        public bool role;
+
         public string usernames;
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -36,12 +38,17 @@ namespace DoAn
             else
             {
                 kt = false;
-                usernames = "";
+                role = false;
                 if (user_BUS.Login(username, password))
                 {
                     MessageBox.Show("Đăng nhập thành công!");
                     kt = true;
                     usernames = username;
+
+                    if(user_BUS.CheckRole(username))
+                    {
+                        role = true;
+                    }
                     this.Close();
                 }
                 else

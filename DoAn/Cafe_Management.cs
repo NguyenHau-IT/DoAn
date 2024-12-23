@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -32,13 +25,25 @@ namespace DoAn
             login.ShowDialog();
             if (login.kt)
             {
-                loginsuccess();
-                name = login.usernames;
-                btnInfor.Text = user.GetName(login.usernames);
+                if (login.role)
+                {
+                    loginsuccess();
+                    name = login.usernames;
+                    btnInfor.Text = user.GetName(login.usernames);
+                    btnLogin.Enabled = false;
+                }
+                else
+                {
+                    loginuser();
+                    name = login.usernames;
+                    btnInfor.Text = user.GetName(login.usernames);
+                    btnLogin.Enabled = false;
+                }
+
             }
             else
             {
-                MessageBox.Show("Đăng nhập cmm đi rồi dùng!", "Thông báo");
+                MessageBox.Show("Đăng nhập để sử dụng!", "Thông báo");
                 loginfail();
             }
         }
@@ -119,6 +124,15 @@ namespace DoAn
             btnProductSize.Enabled = false;
         }
 
+        private void loginuser()
+        {
+            btnBill.Enabled = true;
+            btnChange.Enabled = true;
+            btnODT.Enabled = true;
+            btnOrder.Enabled = true;
+            btnProductSize.Enabled = true;
+        }
+
         private void loginsuccess()
         {
             btnBill.Enabled = true;
@@ -139,6 +153,7 @@ namespace DoAn
         private void btnChange_Click(object sender, EventArgs e)
         {
             loginfail();
+            btnLogin.Enabled = true;
         }
 
         private void btnProduct_Click(object sender, EventArgs e)
@@ -202,9 +217,13 @@ namespace DoAn
                         break;
 
                     case "Order":
+                        Order_Management order_Management = new Order_Management();
+                        order_Management.Show();
                         break;
 
                     case "ODT":
+                        OrderDetail_Management orderDetail_Management = new OrderDetail_Management();
+                        orderDetail_Management.Show();
                         break;
 
                     case "Category":

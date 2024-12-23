@@ -37,6 +37,11 @@ namespace BUS
             return user_DAL.CheckLogin(username, password);
         }
 
+        public bool CheckRole(string username)
+        {
+            return user_DAL.CheckRole(username);
+        }
+
         public string GetName(string username)
         {
             return user_DAL.GetName(username);

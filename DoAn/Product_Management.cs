@@ -101,7 +101,6 @@ namespace DoAn
 
                         var product = new Product
                         {
-                            ProductID = txtProductID.Text,
                             ProductName = txtProductName.Text,
                             Price = decimal.Parse(txtPrice.Text),
                             Description = txtDescription.Text,
@@ -126,7 +125,6 @@ namespace DoAn
             {
                 var product = new Product
                 {
-                    ProductID = txtProductID.Text,
                     ProductName = txtProductName.Text,
                     Price = decimal.Parse(txtPrice.Text),
                     Description = txtDescription.Text,
@@ -285,8 +283,6 @@ namespace DoAn
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            loadData();
-            LoadCategoriesIntoComboBox();
             progressValue = 0;
             progressBarRefresh.Value = 0;
             progressBarRefresh.Visible = true;
@@ -306,6 +302,8 @@ namespace DoAn
                 timerRefresh.Stop();
                 progressBarRefresh.Visible = false;
                 MessageBox.Show("Làm mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadData();
+                LoadCategoriesIntoComboBox();
             }
         }
 

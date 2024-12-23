@@ -12,7 +12,7 @@ namespace BUS
     {
         private Product_Size_DAL product_size = new Product_Size_DAL();
 
-        public List<ProductSize> GetALLProductSize()
+        public List<dynamic> GetALLProductSize()
         {
             return product_size.GetAllProductSize();
         }

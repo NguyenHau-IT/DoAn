@@ -36,5 +36,10 @@ namespace BUS
         {
             return bill_DAL.SearchID(searchID);
         }
+
+        public int CalculateTotal(int orderID)
+        {
+            return bill_DAL.CalculateTotalForOrder(orderID);
+        }
     }
 }

@@ -9,11 +9,22 @@ namespace DAL
 {
     public class Order_DAL
     {
-        public List<Order> GetAllOrders()
+        public List<dynamic> GetAllOrders()
         {
             using (var context = new Cafe_Context())
             {
-                return context.Orders.ToList();
+                var orders = from o in context.Orders
+                             join t in context.CF_Table on o.TableID equals t.TableID
+                             select new
+                             {
+                                 OrderID = o.OrderID,
+                                 DateCheckIn = o.DateCheckIn,
+                                 DateCheckOut = o.DateCheckOut,
+                                 Status = o.Status,
+                                 TableName = t.TableName
+                             };
+
+                return orders.ToList<dynamic>();
             }
         }
 
@@ -33,7 +44,6 @@ namespace DAL
                 var existingOrders = context.Orders.Find(order.OrderID);
                 if (existingOrders != null)
                 {
-                    existingOrders.OrderID = order.OrderID;
                     existingOrders.DateCheckIn = order.DateCheckIn;
                     existingOrders.DateCheckOut = order.DateCheckOut;
                     existingOrders.Status = order.Status;

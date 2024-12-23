@@ -9,11 +9,11 @@ namespace DAL.Entities
     [Table("ProductSize")]
     public partial class ProductSize
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProductSize()
-        {
-            OrderDetails = new HashSet<OrderDetail>();
-        }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        //public ProductSize()
+        //{
+        //    OrderDetails = new HashSet<OrderDetail>();
+        //}
 
         public int ProductSizeID { get; set; }
 
@@ -23,11 +23,11 @@ namespace DAL.Entities
         [StringLength(10)]
         public string ProductID { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
-        public virtual Product Product { get; set; }
+        //public virtual Product Product { get; set; }
 
-        public virtual Sizes Size { get; set; }
+        //public virtual Sizes Size { get; set; }
     }
 }

@@ -42,19 +42,19 @@ namespace DAL.Entities
                 .Property(e => e.AreaID)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<OrderDetail>()
-                .HasMany(e => e.Bills)
-                .WithRequired(e => e.OrderDetail)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<OrderDetail>()
+            //    .HasMany(e => e.Bills)
+            //    .WithRequired(e => e.OrderDetail)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Order>()
                 .Property(e => e.TableID)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Order>()
-                .HasMany(e => e.OrderDetails)
-                .WithRequired(e => e.Order)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Order>()
+            //    .HasMany(e => e.OrderDetails)
+            //    .WithRequired(e => e.Order)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.ProductID)
@@ -68,10 +68,10 @@ namespace DAL.Entities
                 .Property(e => e.ProductID)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ProductSize>()
-                .HasMany(e => e.OrderDetails)
-                .WithRequired(e => e.ProductSize)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<ProductSize>()
+            //    .HasMany(e => e.OrderDetails)
+            //    .WithRequired(e => e.ProductSize)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Role>()
                 .Property(e => e.RoleID)

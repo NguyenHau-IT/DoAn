@@ -33,7 +33,6 @@ namespace DAL
                 var existingOrderDetails = context.OrderDetails.Find(orderDetail.OrderDetailID);
                 if (existingOrderDetails != null)
                 {
-                    existingOrderDetails.OrderDetailID = orderDetail.OrderDetailID;
                     existingOrderDetails.OrderID = orderDetail.OrderID;
                     existingOrderDetails.Quantity = orderDetail.Quantity;
                     existingOrderDetails.ProductSizeID = orderDetail.ProductSizeID;

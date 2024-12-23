@@ -9,11 +9,23 @@ namespace DAL
 {
     public class Product_Size_DAL
     {
-        public List<ProductSize> GetAllProductSize()
+        public List<dynamic> GetAllProductSize()
         {
             using (var context = new Cafe_Context())
             {
-                return context.ProductSizes.ToList();
+                var productsize = from pz in context.ProductSizes
+                               join p in context.Product on pz.ProductID equals p.ProductID
+                               join z in context.Sizes on pz.SizeName equals z.SizeName
+                               select new
+                               {
+                                   ProductSizeID = pz.ProductSizeID,
+                                   SizeName = z.SizeName,
+                                   SizePrice = z.SizePrice,
+                                   ProductName = p.ProductName,
+                                   ProductPrice = p.Price,
+                               };
+
+                return productsize.ToList<dynamic>();
             }
         }
 
@@ -33,7 +45,6 @@ namespace DAL
                 var existingProductSizes = context.ProductSizes.Find(productsize.ProductID);
                 if (existingProductSizes != null)
                 {
-                    existingProductSizes.ProductSizeID = productsize.ProductSizeID;
                     existingProductSizes.SizeName = productsize.SizeName;
                     existingProductSizes.ProductID = productsize.ProductID;
                     context.SaveChanges();

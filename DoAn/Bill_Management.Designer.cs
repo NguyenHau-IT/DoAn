@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bill_Management));
             this.dgvBill = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbODID = new System.Windows.Forms.ComboBox();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.cmbOD = new System.Windows.Forms.ComboBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,6 +50,7 @@
             this.txtSearchID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnCalculateTotal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -70,11 +71,12 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox1.Controls.Add(this.cmbODID);
+            this.groupBox1.Controls.Add(this.btnCalculateTotal);
+            this.groupBox1.Controls.Add(this.cmbStatus);
+            this.groupBox1.Controls.Add(this.cmbOD);
             this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.btnUpdate);
-            this.groupBox1.Controls.Add(this.cmbStatus);
             this.groupBox1.Controls.Add(this.btnRefresh);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.label4);
@@ -92,14 +94,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chi tiết";
             // 
-            // cmbODID
+            // cmbStatus
             // 
-            this.cmbODID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cmbODID.FormattingEnabled = true;
-            this.cmbODID.Location = new System.Drawing.Point(161, 64);
-            this.cmbODID.Name = "cmbODID";
-            this.cmbODID.Size = new System.Drawing.Size(219, 28);
-            this.cmbODID.TabIndex = 17;
+            this.cmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(714, 64);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(291, 28);
+            this.cmbStatus.TabIndex = 18;
+            // 
+            // cmbOD
+            // 
+            this.cmbOD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbOD.FormattingEnabled = true;
+            this.cmbOD.Location = new System.Drawing.Point(161, 64);
+            this.cmbOD.Name = "cmbOD";
+            this.cmbOD.Size = new System.Drawing.Size(219, 28);
+            this.cmbOD.TabIndex = 17;
             // 
             // txtTotal
             // 
@@ -128,15 +139,6 @@
             this.btnUpdate.Text = "Sửa";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(714, 64);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(291, 28);
-            this.cmbStatus.TabIndex = 7;
             // 
             // btnRefresh
             // 
@@ -202,9 +204,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 24);
+            this.label2.Size = new System.Drawing.Size(90, 24);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Mã chi tiết Order";
+            this.label2.Text = "Mã Order";
             // 
             // txtBillID
             // 
@@ -277,6 +279,17 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnCalculateTotal
+            // 
+            this.btnCalculateTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnCalculateTotal.Location = new System.Drawing.Point(450, 108);
+            this.btnCalculateTotal.Name = "btnCalculateTotal";
+            this.btnCalculateTotal.Size = new System.Drawing.Size(111, 38);
+            this.btnCalculateTotal.TabIndex = 19;
+            this.btnCalculateTotal.Text = "Tính";
+            this.btnCalculateTotal.UseVisualStyleBackColor = true;
+            this.btnCalculateTotal.Click += new System.EventHandler(this.btnCalculateTotal_Click);
+            // 
             // Bill_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,7 +317,6 @@
 
         private System.Windows.Forms.DataGridView dgvBill;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Label label3;
@@ -321,7 +333,9 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbODID;
+        private System.Windows.Forms.ComboBox cmbOD;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.Button btnCalculateTotal;
     }
 }

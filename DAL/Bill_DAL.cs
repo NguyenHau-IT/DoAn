@@ -46,10 +46,10 @@ namespace DAL
                 var existingBills = context.Bills.Find(Bill.BillID);
                 if (existingBills != null)
                 {
-                    existingBills.BillID = Bill.BillID;
                     existingBills.OrderDetailID = Bill.OrderDetailID;
                     existingBills.PaymentDate = Bill.PaymentDate;
                     existingBills.PaymentStatus = Bill.PaymentStatus;
+                    existingBills.Total = Bill.Total;
                     context.SaveChanges();
                 }
             }
@@ -85,6 +85,27 @@ namespace DAL
                             };
 
                 return bills.ToList<dynamic>();
+            }
+        }
+
+        public int CalculateTotalForOrder(int orderId)
+        {
+            using (var context = new Cafe_Context())
+            {
+                var total = (from od in context.OrderDetails
+                             join ps in context.ProductSizes on od.ProductSizeID equals ps.ProductSizeID
+                             join p in context.Product on ps.ProductID equals p.ProductID
+                             join s in context.Sizes on ps.SizeName equals s.SizeName
+                             where od.OrderID == orderId
+                             select new
+                             {
+                                 ProductPrice = p.Price,
+                                 SizePrice = s.SizePrice,
+                                 Quantity = od.Quantity
+                             })
+                     .Sum(x => (x.ProductPrice + (x.SizePrice ?? 0)) * x.Quantity);
+
+                return (int)total;
             }
         }
     }
