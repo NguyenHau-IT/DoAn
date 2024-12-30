@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
@@ -10,46 +11,155 @@ namespace BUS
 {
     public class User_BUS
     {
-        private User_DAL user_DAL = new User_DAL();
 
-        public List<User> GetALLUser()
+        public List<dynamic> GetALLUser()
         {
-            return user_DAL.GetAllUsers();
+            using (var context = new Cafe_Context())
+            {
+                var users = from u in context.Users
+                               join r in context.Roles on u.RoleID equals r.RoleID
+                               select new
+                               {
+                                   UserName = u.UserName,
+                                   Userpassword = u.Userpassword,
+                                   FullName = u.FullName,
+                                   Phone = u.Phone,
+                                   IdentityCard = u.IdentityCard,
+                                   RoleName = r.RoleName
+                               };
+
+                return users.ToList<dynamic>();
+            }
         }
 
         public void AddUser(User user)
         {
-            user_DAL.AddUser(user);
+            using (var context = new Cafe_Context())
+            {
+                context.Users.Add(user);
+                context.SaveChanges();
+            }
         }
 
         public void UpdateUser(User user)
         {
-            user_DAL.UpdateUser(user);
+            using (var context = new Cafe_Context())
+            {
+                var existingUsers = context.Users.Find(user.UserName);
+                if (existingUsers != null)
+                {
+                    existingUsers.UserName = user.UserName;
+                    existingUsers.Userpassword = user.Userpassword;
+                    existingUsers.FullName = user.FullName;
+                    existingUsers.Phone = user.Phone;
+                    existingUsers.IdentityCard = user.IdentityCard;
+                    existingUsers.RoleID = user.RoleID;
+                    context.SaveChanges();
+                }
+            }
         }
 
         public void DeleteUser(string username)
         {
-            user_DAL.DeleteUser(username);
+            using (var context = new Cafe_Context())
+            {
+                var user = context.Users.Find(username);
+                if (user != null)
+                {
+                    context.Users.Remove(user);
+                    context.SaveChanges();
+                }
+            }
         }
 
         public bool Login(string username, string password)
         {
-            return user_DAL.CheckLogin(username, password);
+            using (var context = new Cafe_Context())
+            {
+                var user = context.Users.FirstOrDefault(u => u.UserName == username);
+
+                if (user != null)
+                {
+                    if (user.Userpassword == password)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
         }
 
         public bool CheckRole(string username)
         {
-            return user_DAL.CheckRole(username);
+            using (var context = new Cafe_Context())
+            {
+                var user = context.Users.FirstOrDefault(u => u.UserName == username);
+
+                if (user != null)
+                {
+                    if (user.RoleID == "R1")
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
         }
 
         public string GetName(string username)
         {
-            return user_DAL.GetName(username);
+            try
+            {
+                using (var context = new Cafe_Context())
+                {
+                    var user = (from u in context.Users
+                                where u.UserName == username
+                                select new
+                                {
+                                    FullName = u.FullName
+                                }).FirstOrDefault();
+
+                    return user?.FullName ?? "User not found";
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"An error occurred: {ex.Message}";
+            }
         }
 
         public dynamic GetInfor(string username)
         {
-            return user_DAL.GetInfor(username);
+            using (var context = new Cafe_Context())
+            {
+                var user = (from u in context.Users
+                            join r in context.Roles on u.RoleID equals r.RoleID
+                            where u.UserName == username
+                            select new
+                            {
+                                FullName = u.FullName,
+                                Phone = u.Phone,
+                                IdentityCard = u.IdentityCard,
+                                RoleName = r.RoleName
+                            }).FirstOrDefault();
+                return user;
+            }
+        }
+
+        public User FindByID(string id)
+        {
+            using (var idEmploy = new Cafe_Context())
+            {
+                return idEmploy.Users.SingleOrDefault(p => p.IdentityCard == id);
+            }
+        }
+
+        public User FindByName(string name)
+        {
+            using (var nameEmploy = new Cafe_Context())
+            {
+                return nameEmploy.Users.SingleOrDefault(n => n.FullName.ToLower() == name.ToLower());
+            }
         }
     }
 }

@@ -183,5 +183,11 @@ namespace DoAn
             }
 
         }
+
+        private void btnBill_Click(object sender, EventArgs e)
+        {
+            Bill_Management bill_Management = new Bill_Management();
+            bill_Management.Show();
+        }
     }
 }

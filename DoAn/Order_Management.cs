@@ -17,8 +17,6 @@ namespace DoAn
     {
         private Order_BUS order_BUS = new Order_BUS();
 
-        private string selectedOrderId = "";
-
         public Order_Management()
         {
             InitializeComponent();
@@ -55,8 +53,8 @@ namespace DoAn
             dgvOrders.Columns["Status"].HeaderText = "Trạng thái";
             dgvOrders.Columns["TableName"].HeaderText = "Tên bàn";
 
-            dgvOrders.Columns["DateCheckIn"].DefaultCellStyle.Format = "dd-MM-yyyy HH:mm";
-            dgvOrders.Columns["DateCheckOut"].DefaultCellStyle.Format = "dd-MM-yyyy HH:mm";
+            dgvOrders.Columns["DateCheckIn"].DefaultCellStyle.Format = " dd-MM-yyyy";
+            dgvOrders.Columns["DateCheckOut"].DefaultCellStyle.Format = " dd-MM-yyyy";
         }
 
         private void Order_Management_Load(object sender, EventArgs e)
@@ -66,7 +64,7 @@ namespace DoAn
             LoadStatus();
 
             dtpDateCheckOut.Format = DateTimePickerFormat.Custom;
-            dtpDateCheckOut.CustomFormat = "dd-MM-yyyy HH:mm"; // Hiển thị chỉ giờ và phút
+            dtpDateCheckOut.CustomFormat = " dd-MM-yyyy";
             dtpDateCheckOut.ShowCheckBox = true;
             dtpDateCheckOut.Checked = false;
 
@@ -205,7 +203,33 @@ namespace DoAn
 
         private void btnSearchByDate_Click(object sender, EventArgs e)
         {
+            DateTime fromDate = dtpFromDate.Value.Date;
+            DateTime toDate = dtpToDate.Value.Date;
 
+            var ordersLight = order_BUS.SearchOrdersByDateLight(fromDate, toDate);
+            if (ordersLight != null)
+            {
+                dgvOrders.DataSource = ordersLight;
+
+                dgvOrders.Columns["OrderID"].HeaderText = "Mã mua hàng";
+                dgvOrders.Columns["DateCheckIn"].HeaderText = "Giờ vào";
+                dgvOrders.Columns["DateCheckOut"].HeaderText = "Giờ về";
+                dgvOrders.Columns["Status"].HeaderText = "Trạng thái";
+                dgvOrders.Columns["TableName"].HeaderText = "Tên bàn";
+
+                dgvOrders.Columns["DateCheckIn"].DefaultCellStyle.Format = " dd-MM-yyyy";
+                dgvOrders.Columns["DateCheckOut"].DefaultCellStyle.Format = " dd-MM-yyyy";
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy đơn mua hàng nào!", "Thông báo");
+            }
+        }
+
+        private void btnDetail_Click_1(object sender, EventArgs e)
+        {
+            OrderDetail_Management orderDetail_Management = new OrderDetail_Management();
+            orderDetail_Management.Show();
         }
     }
 }

@@ -10,26 +10,48 @@ namespace BUS
 {
     public class Area_BUS
     {
-        private Area_DAL area_DAL = new Area_DAL();
 
         public List<Area> GetAreas()
         {
-            return area_DAL.GetAllArea();
+            using (var context = new Cafe_Context())
+            {
+                return context.Areas.ToList();
+            }
         }
 
         public void AddArea(Area area)
         {
-            area_DAL.AddArea(area);
+            using (var context = new Cafe_Context())
+            {
+                context.Areas.Add(area);
+                context.SaveChanges();
+            }
         }
 
         public void UpdateArea(Area area)
         {
-            area_DAL.UpdateArea(area);
+            using (var context = new Cafe_Context())
+            {
+                var existingArea = context.Areas.Find(area.AreaID);
+                if (existingArea != null)
+                {
+                    existingArea.AreaName = area.AreaName;
+                    context.SaveChanges();
+                }
+            }
         }
 
         public void DeleteArea(string areaID)
         {
-            area_DAL.DeleteArea(areaID);
+            using (var context = new Cafe_Context())
+            {
+                var area = context.Areas.Find(areaID);
+                if (area != null)
+                {
+                    context.Areas.Remove(area);
+                    context.SaveChanges();
+                }
+            }
         }
 
     }

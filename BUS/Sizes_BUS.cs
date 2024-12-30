@@ -10,26 +10,51 @@ namespace BUS
 {
     public class Sizes_BUS
     {
-        private Sizes_DAL Size_DAL = new Sizes_DAL();
 
         public List<Sizes> GetALLSize()
         {
-            return Size_DAL.GetAllSizes();
+            using (var context = new Cafe_Context())
+            {
+                return context.Sizes.ToList();
+            }
         }
 
         public void AddSize(Sizes Size)
         {
-            Size_DAL.AddSize(Size);
+            using (var context = new Cafe_Context())
+            {
+                context.Sizes.Add(Size);
+                context.SaveChanges();
+            }
         }
 
-        public void UpdateSize(Sizes Size)
+        public void UpdateSize(Sizes size)
         {
-            Size_DAL.UpdateSize(Size);
+            using (var context = new Cafe_Context())
+            {
+                var existingSize = context.Sizes
+                    .FirstOrDefault(s => s.SizeName == size.SizeName);
+
+                if (existingSize != null)
+                {
+                    existingSize.SizePrice = size.SizePrice;
+
+                    context.SaveChanges();
+                }
+            }
         }
 
         public void DeleteSize(string SizeName)
         {
-            Size_DAL.DeleteSize(SizeName);
+            using (var context = new Cafe_Context())
+            {
+                var Size = context.Sizes.Find(SizeName);
+                if (Size != null)
+                {
+                    context.Sizes.Remove(Size);
+                    context.SaveChanges();
+                }
+            }
         }
     }
 }

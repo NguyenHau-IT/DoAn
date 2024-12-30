@@ -1,28 +1,52 @@
 ﻿using DAL;
 using DAL.Entities;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Category_BUS
 {
-    private readonly Category_DAL category_DAL = new Category_DAL();
 
     public List<Category> GetAllCategories()
     {
-        return category_DAL.GetAllCategories();
+        using (var context = new Cafe_Context())
+        {
+            return context.Categories.ToList();
+        }
     }
 
     public void AddCategory(Category category)
     {
-        category_DAL.AddCategory(category);
+        using (var context = new Cafe_Context())
+        {
+            context.Categories.Add(category);
+            context.SaveChanges();
+        }
     }
 
     public void UpdateCategory(Category category)
     {
-        category_DAL.UpdateCategory(category);
+        using (var context = new Cafe_Context())
+        {
+            var existingCategory = context.Categories.Find(category.CategoryID);
+            if (existingCategory != null)
+            {
+                existingCategory.CategoryName = category.CategoryName;
+                existingCategory.Description = category.Description;
+                context.SaveChanges();
+            }
+        }
     }
 
     public void DeleteCategory(string categoryId)
     {
-        category_DAL.DeleteCategory(categoryId);
+        using (var context = new Cafe_Context())
+        {
+            var category = context.Categories.Find(categoryId);
+            if (category != null)
+            {
+                context.Categories.Remove(category);
+                context.SaveChanges();
+            }
+        }
     }
 }

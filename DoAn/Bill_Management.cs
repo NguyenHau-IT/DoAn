@@ -17,7 +17,7 @@ namespace DoAn
     {
         private Bill_BUS bill_BUS = new Bill_BUS();
 
-        private string selectedBillId = "";
+        private int selectedBillId = 0;
 
         private Order_BUS order_BUS = new Order_BUS();
 
@@ -50,10 +50,12 @@ namespace DoAn
             dgvBill.DataSource = bills;
 
             dgvBill.Columns["BillID"].HeaderText = "Mã hoá đơn";
-            dgvBill.Columns["OrderDetailID"].HeaderText = "Mã order";
+            dgvBill.Columns["OrderID"].HeaderText = "Mã order";
             dgvBill.Columns["PaymentDate"].HeaderText = "Ngày thanh toán";
             dgvBill.Columns["PaymentStatus"].HeaderText = "Trạng thái thanh toán";
             dgvBill.Columns["Total"].HeaderText = "Tổng";
+
+            dgvBill.Columns["PaymentDate"].DefaultCellStyle.Format = " dd-MM-yyyy";
         }
 
         private void Bill_Management_Load(object sender, EventArgs e)
@@ -79,28 +81,22 @@ namespace DoAn
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(txtTotal.Text) || !int.TryParse(txtTotal.Text, out int total))
+                if (string.IsNullOrWhiteSpace(txtTotal.Text) || !decimal.TryParse(txtTotal.Text, out decimal total))
                 {
                     MessageBox.Show("Total phải là số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                if (cmbStatus.SelectedValue.ToString() == null)
+                if (cmbStatus.SelectedValue == null)
                 {
                     MessageBox.Show("Vui lòng chọn trạng thái thanh toán!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (bill_BUS == null)
-                {
-                    MessageBox.Show("bill_BUS chưa được khởi tạo!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 var bill = new Bill
                 {
                     BillID = billID,
-                    OrderDetailID = orderDetailID,
+                    OrderID = orderDetailID,
                     PaymentDate = dtpDate.Value,
                     PaymentStatus = cmbStatus.SelectedValue.ToString(),
                     Total = total
@@ -108,50 +104,53 @@ namespace DoAn
 
                 bill_BUS.AddBill(bill);
 
-                try
-                {
-                    loadData();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Lỗi khi tải dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                loadData();
+
+                txtBillID.Clear();
+                txtTotal.Clear();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+
         }
-
-
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            // Kiểm tra xem có dòng nào được chọn hay không
             if (dgvBill.SelectedRows.Count > 0)
             {
                 var selectedRow = dgvBill.SelectedRows[0];
-                int billId = (int)selectedRow.Cells["BillID"].Value;
 
-                var result = MessageBox.Show("Bạn có chắc chắn muốn xoá hoá đơn này?", "Xoá hoá đơn", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
+                if (selectedRow.Cells["BillID"].Value != DBNull.Value && selectedRow.Cells["BillID"].Value is int billId)
                 {
-                    try
+                    var result = MessageBox.Show("Bạn có chắc chắn muốn xoá hoá đơn này?", "Xoá hoá đơn", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
                     {
-                        bill_BUS.DeleteBill(billId);
+                        try
+                        {
+                            bill_BUS.DeleteBill(billId);
 
-                        MessageBox.Show("Đã xoá sản phẩm!");
-                        loadData();
+                            MessageBox.Show("Đã xoá hoá đơn!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            loadData();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi khi xoá hoá đơn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi khi xoá sản phẩm: " + ex.Message);
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("Giá trị BillID không hợp lệ hoặc không tồn tại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn sản phẩm để xoá.");
+                // Kiểm tra thêm lần nữa và thông báo chi tiết hơn nếu không có dòng được chọn
+                MessageBox.Show("Vui lòng chọn hoá đơn để xoá. Chọn một dòng trong bảng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -178,7 +177,7 @@ namespace DoAn
             var bill = new Bill
             {
                 BillID = billID,
-                OrderDetailID = orderDetailID,
+                OrderID = orderDetailID,
                 PaymentDate = dtpDate.Value,
                 PaymentStatus = cmbStatus.SelectedValue.ToString(),
                 Total = total
@@ -229,9 +228,12 @@ namespace DoAn
             {
                 DataGridViewRow row = dgvBill.Rows[e.RowIndex];
 
-                selectedBillId = row.Cells["BillID"].Value?.ToString() ?? string.Empty;
-                txtBillID.Text = selectedBillId;
-                cmbOD.Text = row.Cells["OrderDetailID"].Value?.ToString() ?? string.Empty;
+                    selectedBillId = Convert.ToInt32(row.Cells["BillID"].Value);
+                    txtBillID.Text = selectedBillId.ToString(); // Gán giá trị int vào TextBox
+
+                cmbOD.Text = row.Cells["OrderID"].Value?.ToString() ?? string.Empty;
+
+                txtTotal.Text = row.Cells["Total"].Value?.ToString() ?? string.Empty;
 
                 if (DateTime.TryParse(row.Cells["PaymentDate"].Value?.ToString(), out DateTime paymentDate))
                 {
@@ -239,9 +241,12 @@ namespace DoAn
                 }
                 else
                 {
-                    MessageBox.Show("Ngày thanh toán không hợp lệ.", "Thông báo");
+                    MessageBox.Show("Ngày thanh toán không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dtpDate.Value = DateTime.Now;
                 }
+                dgvBill.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             }
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)

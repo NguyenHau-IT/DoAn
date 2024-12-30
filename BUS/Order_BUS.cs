@@ -10,26 +10,82 @@ namespace BUS
 {
     public class Order_BUS
     {
-        private Order_DAL order_DAL = new Order_DAL();
 
         public List<dynamic> GetALLOrders()
         {
-            return order_DAL.GetAllOrders();
+            using (var context = new Cafe_Context())
+            {
+                var orders = from o in context.Orders
+                             join t in context.CF_Table on o.TableID equals t.TableID
+                             select new
+                             {
+                                 OrderID = o.OrderID,
+                                 DateCheckIn = o.DateCheckIn,
+                                 DateCheckOut = o.DateCheckOut,
+                                 Status = o.Status,
+                                 TableName = t.TableName
+                             };
+
+                return orders.ToList<dynamic>();
+            }
         }
 
         public void AddOrder(Order order)
         {
-            order_DAL.AddOrder(order);
+            using (var context = new Cafe_Context())
+            {
+                context.Orders.Add(order);
+                context.SaveChanges();
+            }
         }
 
         public void UpdateOrder(Order order)
         {
-            order_DAL.UpdateOrder(order);
+            using (var context = new Cafe_Context())
+            {
+                var existingOrders = context.Orders.Find(order.OrderID);
+                if (existingOrders != null)
+                {
+                    existingOrders.DateCheckIn = order.DateCheckIn;
+                    existingOrders.DateCheckOut = order.DateCheckOut;
+                    existingOrders.Status = order.Status;
+                    existingOrders.TableID = order.TableID;
+                    context.SaveChanges();
+                }
+            }
         }
 
         public void DeleteOrder(int orderID)
         {
-            order_DAL.DeleteOrder(orderID);
+            using (var context = new Cafe_Context())
+            {
+                var order = context.Orders.Find(orderID);
+                if (order != null)
+                {
+                    context.Orders.Remove(order);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public List<dynamic> SearchOrdersByDateLight(DateTime fromDate, DateTime toDate)
+        {
+            using (var context = new Cafe_Context())
+            {
+                var order = from o in context.Orders
+                            join t in context.CF_Table on o.TableID equals t.TableID
+                             where o.DateCheckIn >= fromDate && o.DateCheckIn <= toDate
+                             select new
+                             {
+                                 OrderID = o.OrderID,
+                                 DateCheckIn = o.DateCheckIn,
+                                 DateCheckOut = o.DateCheckOut,
+                                 Status = o.Status,
+                                 TableName = t.TableName
+                             };
+
+                return order.ToList<dynamic>();
+            }
         }
     }
 }

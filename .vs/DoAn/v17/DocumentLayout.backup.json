@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|c:\\users\\dtnhn\\source\\repos\\doan\\doan\\order_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|solutionrelative:doan\\order_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|C:\\Users\\dtnhn\\source\\repos\\DoAn\\doan\\cafe_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|solutionrelative:doan\\cafe_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|C:\\Users\\dtnhn\\source\\repos\\DoAn\\doan\\cafe_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|solutionrelative:doan\\cafe_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|C:\\Users\\dtnhn\\source\\repos\\DoAn\\doan\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|solutionrelative:doan\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 357,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Program.cs",
+              "RelativeDocumentMoniker": "DoAn\\Program.cs",
+              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Program.cs",
+              "RelativeToolTip": "DoAn\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T09:25:35.322Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Order_Management.cs",
+              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Order_Management.cs",
+              "RelativeDocumentMoniker": "DoAn\\Order_Management.cs",
+              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Order_Management.cs",
+              "RelativeToolTip": "DoAn\\Order_Management.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T17:38:18.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Cafe_Management.cs",
+              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Cafe_Management.cs",
+              "RelativeDocumentMoniker": "DoAn\\Cafe_Management.cs",
+              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Cafe_Management.cs",
+              "RelativeToolTip": "DoAn\\Cafe_Management.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYBAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T17:35:57.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cafe_Management.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Cafe_Management.cs",
+              "RelativeDocumentMoniker": "DoAn\\Cafe_Management.cs",
+              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Cafe_Management.cs [Design]",
+              "RelativeToolTip": "DoAn\\Cafe_Management.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T17:35:53.546Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -9,11 +9,11 @@ namespace DAL.Entities
     [Table("Category")]
     public partial class Category
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Category()
-        {
-            Products = new HashSet<Product>();
-        }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        //public Category()
+        //{
+        //    Products = new HashSet<Product>();
+        //}
 
         [StringLength(10)]
         public string CategoryID { get; set; }
@@ -25,7 +25,7 @@ namespace DAL.Entities
         [StringLength(500)]
         public string Description { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Product> Products { get; set; }
     }
 }

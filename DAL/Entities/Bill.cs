@@ -11,7 +11,7 @@ namespace DAL.Entities
     {
         public int BillID { get; set; }
 
-        public int OrderDetailID { get; set; }
+        public int OrderID { get; set; }
 
         public DateTime? PaymentDate { get; set; }
 
@@ -20,6 +20,6 @@ namespace DAL.Entities
 
         public decimal Total { get; set; }
 
-        public virtual OrderDetail OrderDetail { get; set; }
+        //public virtual OrderDetail OrderDetail { get; set; }
     }
 }

@@ -71,15 +71,17 @@ namespace DoAn
             // 
             // dgvProducts
             // 
+            this.dgvProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dgvProducts.Location = new System.Drawing.Point(16, 490);
-            this.dgvProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvProducts.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowHeadersWidth = 50;
-            this.dgvProducts.Size = new System.Drawing.Size(1845, 353);
+            this.dgvProducts.Size = new System.Drawing.Size(1383, 353);
             this.dgvProducts.TabIndex = 0;
             this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
             this.dgvProducts.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProducts_CellFormatting);
@@ -108,26 +110,26 @@ namespace DoAn
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(1267, 468);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(1095, 468);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chi tiết";
             // 
             // progressBarRefresh
             // 
-            this.progressBarRefresh.Location = new System.Drawing.Point(603, 14);
-            this.progressBarRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBarRefresh.Location = new System.Drawing.Point(418, 14);
+            this.progressBarRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.progressBarRefresh.Name = "progressBarRefresh";
             this.progressBarRefresh.Size = new System.Drawing.Size(664, 28);
             this.progressBarRefresh.TabIndex = 4;
             // 
             // btnReload
             // 
-            this.btnReload.Location = new System.Drawing.Point(417, 420);
-            this.btnReload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReload.Location = new System.Drawing.Point(377, 419);
+            this.btnReload.Margin = new System.Windows.Forms.Padding(4);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(175, 41);
             this.btnReload.TabIndex = 17;
@@ -138,27 +140,27 @@ namespace DoAn
             // txtImagePath
             // 
             this.txtImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtImagePath.Location = new System.Drawing.Point(759, 428);
-            this.txtImagePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtImagePath.Location = new System.Drawing.Point(560, 430);
+            this.txtImagePath.Margin = new System.Windows.Forms.Padding(4);
             this.txtImagePath.Name = "txtImagePath";
             this.txtImagePath.Size = new System.Drawing.Size(497, 30);
             this.txtImagePath.TabIndex = 16;
             // 
             // btnImage
             // 
-            this.btnImage.Location = new System.Drawing.Point(603, 420);
-            this.btnImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImage.Location = new System.Drawing.Point(1034, 178);
+            this.btnImage.Margin = new System.Windows.Forms.Padding(4);
             this.btnImage.Name = "btnImage";
-            this.btnImage.Size = new System.Drawing.Size(148, 41);
+            this.btnImage.Size = new System.Drawing.Size(48, 41);
             this.btnImage.TabIndex = 15;
-            this.btnImage.Text = "Chọn ảnh";
+            this.btnImage.Text = "...";
             this.btnImage.UseVisualStyleBackColor = true;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(283, 420);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Location = new System.Drawing.Point(254, 419);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(115, 41);
             this.btnUpdate.TabIndex = 14;
@@ -168,8 +170,8 @@ namespace DoAn
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(143, 420);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Location = new System.Drawing.Point(131, 419);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(115, 41);
             this.btnDelete.TabIndex = 13;
@@ -179,8 +181,8 @@ namespace DoAn
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(8, 420);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Location = new System.Drawing.Point(8, 417);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(115, 41);
             this.btnAdd.TabIndex = 12;
@@ -190,10 +192,10 @@ namespace DoAn
             // 
             // pbProduct
             // 
-            this.pbProduct.Location = new System.Drawing.Point(759, 178);
-            this.pbProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbProduct.Location = new System.Drawing.Point(527, 179);
+            this.pbProduct.Margin = new System.Windows.Forms.Padding(4);
             this.pbProduct.Name = "pbProduct";
-            this.pbProduct.Size = new System.Drawing.Size(499, 242);
+            this.pbProduct.Size = new System.Drawing.Size(499, 233);
             this.pbProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbProduct.TabIndex = 11;
             this.pbProduct.TabStop = false;
@@ -201,7 +203,7 @@ namespace DoAn
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(597, 178);
+            this.label6.Location = new System.Drawing.Point(412, 178);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 29);
@@ -212,10 +214,10 @@ namespace DoAn
             // 
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtDescription.Location = new System.Drawing.Point(8, 212);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(583, 200);
+            this.txtDescription.Size = new System.Drawing.Size(390, 200);
             this.txtDescription.TabIndex = 9;
             // 
             // label5
@@ -232,8 +234,8 @@ namespace DoAn
             // 
             this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(712, 107);
-            this.cmbCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCategory.Location = new System.Drawing.Point(527, 107);
+            this.cmbCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(544, 33);
             this.cmbCategory.TabIndex = 7;
@@ -241,7 +243,7 @@ namespace DoAn
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(597, 112);
+            this.label4.Location = new System.Drawing.Point(412, 112);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 29);
@@ -251,8 +253,8 @@ namespace DoAn
             // txtPrice
             // 
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtPrice.Location = new System.Drawing.Point(712, 46);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrice.Location = new System.Drawing.Point(527, 46);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(544, 30);
             this.txtPrice.TabIndex = 5;
@@ -260,7 +262,7 @@ namespace DoAn
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(597, 46);
+            this.label3.Location = new System.Drawing.Point(412, 46);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 29);
@@ -271,9 +273,9 @@ namespace DoAn
             // 
             this.txtProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtProductName.Location = new System.Drawing.Point(127, 112);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(423, 30);
+            this.txtProductName.Size = new System.Drawing.Size(271, 30);
             this.txtProductName.TabIndex = 3;
             // 
             // label2
@@ -290,9 +292,9 @@ namespace DoAn
             // 
             this.txtProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtProductID.Location = new System.Drawing.Point(127, 46);
-            this.txtProductID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProductID.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductID.Name = "txtProductID";
-            this.txtProductID.Size = new System.Drawing.Size(423, 30);
+            this.txtProductID.Size = new System.Drawing.Size(271, 30);
             this.txtProductID.TabIndex = 1;
             // 
             // label1
@@ -309,10 +311,10 @@ namespace DoAn
             // 
             this.cmbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cmbFilter.FormattingEnabled = true;
-            this.cmbFilter.Location = new System.Drawing.Point(13, 151);
-            this.cmbFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbFilter.Location = new System.Drawing.Point(124, 118);
+            this.cmbFilter.Margin = new System.Windows.Forms.Padding(4);
             this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(551, 33);
+            this.cmbFilter.Size = new System.Drawing.Size(138, 33);
             this.cmbFilter.TabIndex = 9;
             // 
             // label7
@@ -327,6 +329,8 @@ namespace DoAn
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox3.Controls.Add(this.btnSearch);
             this.groupBox3.Controls.Add(this.cmbFilter);
@@ -334,19 +338,19 @@ namespace DoAn
             this.groupBox3.Controls.Add(this.txtCheckID);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.groupBox3.Location = new System.Drawing.Point(1291, 15);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Location = new System.Drawing.Point(1119, 15);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Size = new System.Drawing.Size(571, 468);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(280, 242);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tìm kiếm";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(448, 417);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Location = new System.Drawing.Point(18, 166);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(115, 41);
             this.btnSearch.TabIndex = 14;
@@ -357,10 +361,10 @@ namespace DoAn
             // txtCheckID
             // 
             this.txtCheckID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtCheckID.Location = new System.Drawing.Point(15, 65);
-            this.txtCheckID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCheckID.Location = new System.Drawing.Point(124, 31);
+            this.txtCheckID.Margin = new System.Windows.Forms.Padding(4);
             this.txtCheckID.Name = "txtCheckID";
-            this.txtCheckID.Size = new System.Drawing.Size(545, 30);
+            this.txtCheckID.Size = new System.Drawing.Size(138, 30);
             this.txtCheckID.TabIndex = 5;
             // 
             // label9
@@ -386,8 +390,8 @@ namespace DoAn
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnExit.Location = new System.Drawing.Point(1747, 850);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Location = new System.Drawing.Point(1119, 265);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(115, 41);
             this.btnExit.TabIndex = 18;
@@ -400,14 +404,14 @@ namespace DoAn
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1877, 897);
+            this.ClientSize = new System.Drawing.Size(1415, 852);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvProducts);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Product_Management";
             this.Text = "Product_Management";
             this.Load += new System.EventHandler(this.Product_Management_Load);

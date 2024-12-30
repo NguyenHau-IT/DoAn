@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.txt_username = new System.Windows.Forms.TextBox();
             this.btn_login = new System.Windows.Forms.Button();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
@@ -54,9 +54,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(270, 0);
+            this.groupBox1.Location = new System.Drawing.Point(268, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(263, 402);
+            this.groupBox1.Size = new System.Drawing.Size(265, 402);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đăng nhập";
@@ -86,9 +86,9 @@
             // 
             this.txt_password.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_password.Location = new System.Drawing.Point(6, 188);
-            this.txt_password.Multiline = true;
             this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(251, 22);
+            this.txt_password.PasswordChar = '*';
+            this.txt_password.Size = new System.Drawing.Size(251, 23);
             this.txt_password.TabIndex = 1;
             this.txt_password.UseSystemPasswordChar = true;
             // 
@@ -99,6 +99,7 @@
             this.label3.Location = new System.Drawing.Point(2, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 18);
+            this.label3.TabIndex = 3;
             this.label3.Text = "Password:";
             // 
             // label2
@@ -108,6 +109,7 @@
             this.label2.Location = new System.Drawing.Point(2, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 18);
+            this.label2.TabIndex = 4;
             this.label2.Text = "Login:";
             // 
             // label1
@@ -117,6 +119,7 @@
             this.label1.Location = new System.Drawing.Point(82, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 22);
+            this.label1.TabIndex = 5;
             this.label1.Text = "WELCOME";
             // 
             // label7
@@ -127,6 +130,7 @@
             this.label7.Location = new System.Drawing.Point(55, 188);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(146, 23);
+            this.label7.TabIndex = 0;
             this.label7.Text = "Cafe Management";
             // 
             // pictureBox1
@@ -138,9 +142,10 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 91);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // Form1
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -150,7 +155,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "Login";
             this.Text = "Login";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -10,26 +10,48 @@ namespace BUS
 {
     public class Role_BUS
     {
-        private Role_DAL role_DAL = new Role_DAL();
 
         public List<Role> GetALLRole()
         {
-            return role_DAL.GetAllRoles();
+            using (var context = new Cafe_Context())
+            {
+                return context.Roles.ToList();
+            }
         }
 
         public void AddRole(Role role)
         {
-            role_DAL.AddRole(role);
+            using (var context = new Cafe_Context())
+            {
+                context.Roles.Add(role);
+                context.SaveChanges();
+            }
         }
 
         public void UpdateRole(Role role)
         {
-            role_DAL.UpdateRole(role);
+            using (var context = new Cafe_Context())
+            {
+                var existingRoles = context.Roles.Find(role.RoleID);
+                if (existingRoles != null)
+                {
+                    existingRoles.RoleID = role.RoleName;
+                    context.SaveChanges();
+                }
+            }
         }
 
         public void DeleteRole(string roleID)
         {
-            role_DAL.DeleteRole(roleID);
+            using (var context = new Cafe_Context())
+            {
+                var role = context.Roles.Find(roleID);
+                if (role != null)
+                {
+                    context.Roles.Remove(role);
+                    context.SaveChanges();
+                }
+            }
         }
     }
 }

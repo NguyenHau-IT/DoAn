@@ -69,7 +69,7 @@ namespace DoAn
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(957, 157);
+            this.tabControl1.Size = new System.Drawing.Size(1050, 157);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
@@ -81,10 +81,10 @@ namespace DoAn
             this.tabPage1.Controls.Add(this.btnLogin);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(949, 124);
+            this.tabPage1.Size = new System.Drawing.Size(1042, 119);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Hệ Thống";
             // 
@@ -139,10 +139,10 @@ namespace DoAn
             this.tabPage2.Controls.Add(this.btnRole);
             this.tabPage2.Controls.Add(this.btnUser);
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(949, 124);
+            this.tabPage2.Size = new System.Drawing.Size(1042, 119);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Quản Lý";
             // 
@@ -292,20 +292,20 @@ namespace DoAn
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.DarkGray;
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(949, 124);
+            this.tabPage3.Size = new System.Drawing.Size(1042, 119);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Thống kê";
             // 
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.DarkGray;
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Location = new System.Drawing.Point(4, 34);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(949, 124);
+            this.tabPage4.Size = new System.Drawing.Size(949, 119);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Trợ giúp";
             // 
@@ -334,11 +334,11 @@ namespace DoAn
             // 
             // Cafe_Management
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(957, 526);
+            this.ClientSize = new System.Drawing.Size(1050, 638);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.progressBarInit);
             this.Controls.Add(this.tabControl1);

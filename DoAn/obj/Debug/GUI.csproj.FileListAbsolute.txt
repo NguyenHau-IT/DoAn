@@ -29,3 +29,6 @@ C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.Area_Management.resources
 C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.InforUser.resources
 C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.Order_Management.resources
 C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.OrderDetail_Management.resources
+C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.User_Management.resources
+C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.Category_Management.resources
+C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.ProductSize_Management.resources

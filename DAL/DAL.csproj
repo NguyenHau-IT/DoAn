@@ -53,17 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Category_DAL.cs" />
-    <Compile Include="Bill_DAL.cs" />
-    <Compile Include="CF_Table_DAL.cs" />
-    <Compile Include="Area_DAL.cs" />
-    <Compile Include="Order_DAL.cs" />
-    <Compile Include="Product_Size_DAL.cs" />
-    <Compile Include="Sizes_DAL.cs" />
-    <Compile Include="OrderDetail_DAL.cs" />
-    <Compile Include="User_DAL.cs" />
-    <Compile Include="Role_DAL.cs" />
-    <Compile Include="Product_DAL.cs" />
     <Compile Include="Entities\Area.cs" />
     <Compile Include="Entities\Bill.cs" />
     <Compile Include="Entities\Category.cs" />

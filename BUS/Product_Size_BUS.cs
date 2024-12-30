@@ -10,26 +10,61 @@ namespace BUS
 {
     public class Product_Size_BUS
     {
-        private Product_Size_DAL product_size = new Product_Size_DAL();
 
         public List<dynamic> GetALLProductSize()
         {
-            return product_size.GetAllProductSize();
+            using (var context = new Cafe_Context())
+            {
+                var productsize = from pz in context.ProductSizes
+                                  join p in context.Product on pz.ProductID equals p.ProductID
+                                  join z in context.Sizes on pz.SizeName equals z.SizeName
+                                  select new
+                                  {
+                                      ProductSizeID = pz.ProductSizeID,
+                                      SizeName = z.SizeName,
+                                      SizePrice = z.SizePrice,
+                                      ProductName = p.ProductName,
+                                      ProductPrice = p.Price,
+                                  };
+
+                return productsize.ToList<dynamic>();
+            }
         }
 
-        public void AddProductSize(ProductSize productSize)
+        public void AddProductSize(ProductSize productsize)
         {
-            product_size.AddProductSize(productSize);
+            using (var context = new Cafe_Context())
+            {
+                context.ProductSizes.Add(productsize);
+                context.SaveChanges();
+            }
         }
 
-        public void UpdateProductSize(ProductSize productSize)
+        public void UpdateProductSize(ProductSize productsize)
         {
-            product_size.UpdateProductSize(productSize);
+            using (var context = new Cafe_Context())
+            {
+                var existingProductSizes = context.ProductSizes.Find(productsize.ProductSizeID);
+                if (existingProductSizes != null)
+                {
+                    existingProductSizes.SizeName = productsize.SizeName;
+                    existingProductSizes.ProductID = productsize.ProductID;
+                    context.SaveChanges();
+                }
+            }
         }
 
-        public void DeleteProductSize(string productsizeID)
+        public void DeleteProductSize(int productsizeID)
         {
-            product_size.DeleteProductSize(productsizeID);
+            using (var context = new Cafe_Context())
+            {
+                var productsize = context.ProductSizes.Find(productsizeID);
+                if (productsize != null)
+                {
+                    context.ProductSizes.Remove(productsize);
+                    context.SaveChanges();
+                }
+            }
         }
     }
 }
