@@ -14,6 +14,7 @@ namespace DoAn
 {
     public partial class InforUser : Form
     {
+        private string name = Properties.Settings.Default.Name;
         public InforUser()
         {
             InitializeComponent();
@@ -25,16 +26,14 @@ namespace DoAn
         {
             try
             {
-                Cafe_Management cafe = new Cafe_Management();
-
-                var userInfo = user.GetInfor(cafe.name);
+                var userInfo = user.GetInfor(name);
 
                 if (userInfo != null)
                 {
                     lbName.Text = userInfo.FullName;
                     lbPhone.Text = userInfo.Phone;
                     lbCard.Text = userInfo.IdentityCard;
-                    lbRole.Text = userInfo.Role;
+                    lbRole.Text = userInfo.RoleName;
                 }
                 else
                 {

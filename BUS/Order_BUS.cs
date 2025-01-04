@@ -26,7 +26,7 @@ namespace BUS
                                  TableName = t.TableName
                              };
 
-                return orders.ToList<dynamic>();
+                return orders.OrderBy(o =>o.OrderID).ToList<dynamic>();
             }
         }
 
@@ -87,5 +87,21 @@ namespace BUS
                 return order.ToList<dynamic>();
             }
         }
+
+        public Order GetOrderById(int orderId)
+        {
+            try
+            {
+                using (var db = new Cafe_Context())
+                {
+                    return db.Orders.FirstOrDefault(o => o.OrderID == orderId);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi khi lấy thông tin Order với ID {orderId}: {ex.Message}");
+            }
+        }
+
     }
 }

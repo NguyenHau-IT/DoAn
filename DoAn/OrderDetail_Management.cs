@@ -22,6 +22,8 @@ namespace DoAn
         public OrderDetail_Management()
         {
             InitializeComponent();
+
+            txtID.Enabled = false;
         }
 
         public void loadData()
@@ -79,7 +81,7 @@ namespace DoAn
         {
             try
             {
-                if (string.IsNullOrEmpty(txtID.Text) || string.IsNullOrEmpty(txtQuantity.Text))
+                if (string.IsNullOrEmpty(txtQuantity.Text))
                 {
                     MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
                     return;
@@ -87,7 +89,6 @@ namespace DoAn
 
                 var orderDT = new OrderDetail
                 {
-                    OrderDetailID = int.Parse(txtID.Text),
                     ProductSizeID = int.Parse(cmbProductSize.SelectedValue.ToString()),
                     OrderID = int.Parse(cmbOrder.SelectedValue.ToString()),
                     Quantity = int.Parse(txtQuantity.Text)

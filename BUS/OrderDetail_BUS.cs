@@ -15,7 +15,7 @@ namespace BUS
         {
             using (var context = new Cafe_Context())
             {
-                return context.OrderDetails.ToList();
+                return context.OrderDetails.OrderBy(o => o.OrderDetailID).ToList();
             }
         }
 

@@ -53,6 +53,7 @@ namespace DoAn
             btnODT.Enabled = false;
             btnOrder.Enabled = false;
             btnProductSize.Enabled = false;
+            btnThongKeBill.Enabled = false;
         }
 
         private void loginuser()
@@ -80,6 +81,7 @@ namespace DoAn
             btnODT.Enabled = true;
             btnOrder.Enabled = true;
             btnProductSize.Enabled = true;
+            btnThongKeBill.Enabled = true;  
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -88,8 +90,8 @@ namespace DoAn
             login.ShowDialog();
             if (login.kt)
             {
-                name = login.usernames;
-                btnInfor.Text = user.GetName(login.usernames);
+                name = Properties.Settings.Default.Name;
+                btnInfor.Text = user.GetName(name);
                 btnLogin.Enabled = false;
                 if (login.role)
                 {
@@ -151,6 +153,8 @@ namespace DoAn
         private void btnChange_Click(object sender, EventArgs e)
         {
             loginfail();
+            Properties.Settings.Default.Name ="";
+            Properties.Settings.Default.Save();
             btnLogin.Enabled = true;
             btnInfor.Text = "Thông tin";
             btnLogin_Click(sender, e);
@@ -287,6 +291,7 @@ namespace DoAn
                         break;
 
                     case "Infor":
+                        MessageBox.Show($"Name {name}");
                         InforUser inforUser = new InforUser();
                         inforUser.Show();
                         break;
@@ -315,6 +320,10 @@ namespace DoAn
                         User_Management user_Management = new User_Management();
                         user_Management.Show();
                         break;
+                    case "ThongkeBill":
+                        Bill_Statistics bill_Statistics = new Bill_Statistics();
+                        bill_Statistics.Show();
+                        break;
                 }
             }
         }
@@ -324,6 +333,17 @@ namespace DoAn
             int centerX = (this.ClientSize.Width - progressBarInit.Width) / 2;
             int centerY = (this.ClientSize.Height - progressBarInit.Height) / 2;
             progressBarInit.Location = new Point(centerX, centerY);
+        }
+
+        private void btnThongKeBill_Click(object sender, EventArgs e)
+        {
+            progressValue = 0;
+            progressBarInit.Value = 0;
+            progressBarInit.Visible = true;
+            timerInit.Tag = "ThongkeBill";
+            timerInit.Interval = 30;
+            timerInit.Start();
+
         }
     }
 }

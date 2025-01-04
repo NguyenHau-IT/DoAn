@@ -31,6 +31,7 @@ namespace DoAn
             dgvTable.Columns["TableID"].HeaderText = "Mã bàn";
             dgvTable.Columns["TableName"].HeaderText = "Tên bàn";
             dgvTable.Columns["AreaName"].HeaderText = "Khu vực";
+            dgvTable.Columns["Status"].HeaderText = "Trạng thái";
         }
 
         private Area_BUS area_BUS = new Area_BUS();
@@ -53,7 +54,8 @@ namespace DoAn
             {
                 TableID = txtID.Text,
                 TableName = txtName.Text,
-                AreaID = cmbArea.SelectedValue?.ToString()
+                AreaID = cmbArea.SelectedValue?.ToString(),
+                Status = cmbStatus.SelectedValue?.ToString()
             };
 
             table_BUS.AddTable(table);
@@ -88,11 +90,18 @@ namespace DoAn
                         return;
                     }
 
+                    if (cmbStatus.SelectedItem == null)
+                    {
+                        MessageBox.Show("Vui lòng chọn trạng thái hợp lệ.");
+                        return;
+                    }
+
                     var table = new CF_Table
                     {
                         TableID = selectedTableId,
                         TableName = txtName.Text,
                         AreaID = cmbArea.SelectedValue.ToString(),
+                        Status = cmbStatus.SelectedItem.ToString(),
                     };
 
                     table_BUS.UpdateTable(table);
@@ -104,16 +113,18 @@ namespace DoAn
                     txtID.Clear();
                     txtName.Clear();
                     cmbArea.SelectedIndex = -1;
+                    cmbStatus.SelectedIndex = -1;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message + "\n" + ex.StackTrace);
                 }
             }
             else
             {
                 MessageBox.Show("Vui lòng chọn bàn trong danh sách.");
             }
+
         }
 
 
@@ -128,6 +139,7 @@ namespace DoAn
                 txtID.Text = row.Cells["TableID"].Value.ToString();
                 txtName.Text = row.Cells["TableName"].Value.ToString();
                 cmbArea.Text = row.Cells["AreaName"].Value.ToString();
+                cmbStatus.Text = row.Cells["Status"].Value.ToString();
             }
         }
 
@@ -146,10 +158,22 @@ namespace DoAn
             }
         }
 
+        private void loadstatus()
+        {
+            // Thêm các trạng thái vào ComboBox
+            cmbStatus.Items.Add("Trống");
+            cmbStatus.Items.Add("Có khách");
+
+            // Chọn một mục mặc định (tùy chọn)
+            cmbStatus.SelectedIndex = 0; // Chọn "Trống" làm mặc định
+        }
+
+
         private void CF_Table_Management_Load(object sender, EventArgs e)
         {
             loadData();
             loadcmb();
+            loadstatus();
         }
     }
 }

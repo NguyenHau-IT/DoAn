@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -128,25 +129,39 @@ namespace BUS
             }
         }
 
-        public dynamic GetInfor(string username)
+public dynamic GetInfor(string username)
+    {
+        if (string.IsNullOrEmpty(username))
         {
-            using (var context = new Cafe_Context())
-            {
-                var user = (from u in context.Users
-                            join r in context.Roles on u.RoleID equals r.RoleID
-                            where u.UserName == username
-                            select new
-                            {
-                                FullName = u.FullName,
-                                Phone = u.Phone,
-                                IdentityCard = u.IdentityCard,
-                                RoleName = r.RoleName
-                            }).FirstOrDefault();
-                return user;
-            }
+            return null;
         }
 
-        public User FindByID(string id)
+        using (var context = new Cafe_Context())
+        {
+            var result = (from u in context.Users
+                          join r in context.Roles on u.RoleID equals r.RoleID
+                          where u.UserName == username
+                          select new
+                          {
+                              u.FullName,
+                              u.Phone,
+                              u.IdentityCard,
+                              r.RoleName
+                          }).FirstOrDefault();
+
+            if (result == null) return null;
+
+            dynamic userInfo = new ExpandoObject();
+            userInfo.FullName = result.FullName;
+            userInfo.Phone = result.Phone;
+            userInfo.IdentityCard = result.IdentityCard;
+            userInfo.RoleName = result.RoleName;
+
+            return userInfo;
+        }
+    }
+
+    public User FindByID(string id)
         {
             using (var idEmploy = new Cafe_Context())
             {

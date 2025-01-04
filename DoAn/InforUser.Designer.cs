@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InforUser));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbRole = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.lbCard = new System.Windows.Forms.Label();
             this.lbPhone = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbRole = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +59,24 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chi tiết";
+            // 
+            // lbRole
+            // 
+            this.lbRole.AutoSize = true;
+            this.lbRole.Location = new System.Drawing.Point(102, 214);
+            this.lbRole.Name = "lbRole";
+            this.lbRole.Size = new System.Drawing.Size(80, 24);
+            this.lbRole.TabIndex = 11;
+            this.lbRole.Text = "Chức vụ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 214);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 24);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Chức vụ";
             // 
             // lbCard
             // 
@@ -113,30 +132,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ và tên";
             // 
-            // lbRole
-            // 
-            this.lbRole.AutoSize = true;
-            this.lbRole.Location = new System.Drawing.Point(102, 214);
-            this.lbRole.Name = "lbRole";
-            this.lbRole.Size = new System.Drawing.Size(80, 24);
-            this.lbRole.TabIndex = 11;
-            this.lbRole.Text = "Chức vụ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 214);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 24);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Chức vụ";
-            // 
             // InforUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 281);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InforUser";
             this.Text = "InforUser";
             this.Load += new System.EventHandler(this.InforUser_Load);

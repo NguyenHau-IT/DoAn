@@ -108,5 +108,74 @@ namespace BUS
                 return (int)total;
             }
         }
+
+        public List<dynamic> GetBill(DateTime f, DateTime t)
+        {
+            using (var context = new Cafe_Context())
+            {
+                var bills = from b in context.Bills
+                            join o in context.Orders on b.OrderID equals o.OrderID
+                            where b.PaymentDate >= f && b.PaymentDate <= t
+                            select new
+                            {
+                                BillID = b.BillID,
+                                OrderID = o.OrderID,
+                                PaymentDate = b.PaymentDate,
+                                PaymentStatus = b.PaymentStatus,
+                                Total = b.Total
+                            };
+
+                return bills.ToList<dynamic>();
+            }
+        }
+
+        public List<dynamic> GetBillByMonth(int month, int year)
+        {
+            using (var context = new Cafe_Context())
+            {
+                var bills = from b in context.Bills
+                            join o in context.Orders on b.OrderID equals o.OrderID
+                            where b.PaymentDate.Value.Month == month &&
+                                  b.PaymentDate.Value.Year == year
+                            select new
+                            {
+                                BillID = b.BillID,
+                                OrderID = o.OrderID,
+                                PaymentDate = b.PaymentDate,
+                                PaymentStatus = b.PaymentStatus,
+                                Total = b.Total
+                            };
+
+                return bills.ToList<dynamic>();
+            }
+        }
+
+        public List<dynamic> GetBillByYear(int year)
+        {
+            using (var context = new Cafe_Context())
+            {
+                var bills = from b in context.Bills
+                            join o in context.Orders on b.OrderID equals o.OrderID
+                            where b.PaymentDate.Value.Year == year
+                            select new
+                            {
+                                BillID = b.BillID,
+                                OrderID = o.OrderID,
+                                PaymentDate = b.PaymentDate,
+                                PaymentStatus = b.PaymentStatus,
+                                Total = b.Total
+                            };
+
+                return bills.ToList<dynamic>();
+            }
+        }
+
+        public Bill GetBillById(int billID)
+        {
+                using (var db = new Cafe_Context())
+            {
+                    return db.Bills.FirstOrDefault(b => b.BillID == billID);
+                }
+        }
     }
 }

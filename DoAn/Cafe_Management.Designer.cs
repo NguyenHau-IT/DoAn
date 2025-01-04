@@ -50,6 +50,7 @@ namespace DoAn
             this.btnRole = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnThongKeBill = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.progressBarInit = new System.Windows.Forms.ProgressBar();
             this.timerInit = new System.Windows.Forms.Timer(this.components);
@@ -57,6 +58,7 @@ namespace DoAn
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -292,6 +294,7 @@ namespace DoAn
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.DarkGray;
+            this.tabPage3.Controls.Add(this.btnThongKeBill);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -299,13 +302,26 @@ namespace DoAn
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Thống kê";
             // 
+            // btnThongKeBill
+            // 
+            this.btnThongKeBill.Image = global::DoAn.Properties.Resources.chart;
+            this.btnThongKeBill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThongKeBill.Location = new System.Drawing.Point(6, 4);
+            this.btnThongKeBill.Name = "btnThongKeBill";
+            this.btnThongKeBill.Size = new System.Drawing.Size(306, 109);
+            this.btnThongKeBill.TabIndex = 0;
+            this.btnThongKeBill.Text = "Thống kê theo hoá đơn";
+            this.btnThongKeBill.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThongKeBill.UseVisualStyleBackColor = true;
+            this.btnThongKeBill.Click += new System.EventHandler(this.btnThongKeBill_Click);
+            // 
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.DarkGray;
             this.tabPage4.Location = new System.Drawing.Point(4, 34);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(949, 119);
+            this.tabPage4.Size = new System.Drawing.Size(1042, 119);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Trợ giúp";
             // 
@@ -354,6 +370,7 @@ namespace DoAn
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -382,5 +399,6 @@ namespace DoAn
         private Button btnOrder;
         private Button btnCategory;
         private Button btnProductSize;
+        private Button btnThongKeBill;
     }
 }

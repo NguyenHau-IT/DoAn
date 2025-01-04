@@ -32,3 +32,4 @@ C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.OrderDetail_Management.reso
 C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.User_Management.resources
 C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.Category_Management.resources
 C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.ProductSize_Management.resources
+C:\Users\dtnhn\source\repos\DoAn\DoAn\obj\Debug\DoAn.Bill_Statistics.resources

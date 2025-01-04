@@ -44,6 +44,8 @@ namespace DoAn
                     MessageBox.Show("Đăng nhập thành công!");
                     kt = true;
                     usernames = username;
+                    Properties.Settings.Default.Name = username;
+                    Properties.Settings.Default.Save();
 
                     if(user_BUS.CheckRole(username))
                     {

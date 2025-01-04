@@ -41,6 +41,8 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +62,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox1.Controls.Add(this.cmbStatus);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnAdd);
@@ -128,7 +132,7 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtName.Location = new System.Drawing.Point(409, 45);
+            this.txtName.Location = new System.Drawing.Point(422, 43);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(192, 26);
             this.txtName.TabIndex = 3;
@@ -172,6 +176,24 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // cmbStatus
+            // 
+            this.cmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(422, 88);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(192, 28);
+            this.cmbStatus.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(322, 92);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 24);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Trạng thái";
+            // 
             // CF_Table_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,5 +228,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -16,10 +16,13 @@ namespace DoAn
     public partial class Order_Management : Form
     {
         private Order_BUS order_BUS = new Order_BUS();
+        private CF_Table table = new CF_Table();
 
         public Order_Management()
         {
             InitializeComponent();
+
+            txtID.Enabled = false;
         }
 
         private CF_Table_BUS table_BUS = new CF_Table_BUS();
@@ -74,37 +77,41 @@ namespace DoAn
         {
             DateTime? selectedTime = dtpDateCheckOut.Checked ? dtpDateCheckOut.Value : (DateTime?)null;
 
-            if (selectedTime == null)
+            try
             {
                 var order = new Order
                 {
-                    OrderID = int.Parse(txtID.Text),
                     DateCheckIn = dtpDateCheckIn.Value,
                     Status = cmbStatus.SelectedValue.ToString(),
-                    TableID = cmbTable.SelectedValue.ToString()
+                    TableID = cmbTable.SelectedValue.ToString(),
+                    DateCheckOut = selectedTime
                 };
                 order_BUS.AddOrder(order);
-                MessageBox.Show("Thêm order thành công!");
-                loadData();
-            }
-            else
-            {
-                var order = new Order
+
+                if (selectedTime == null)
                 {
-                    OrderID = int.Parse(txtID.Text),
-                    DateCheckIn = dtpDateCheckIn.Value,
-                    DateCheckOut = dtpDateCheckOut.Value,
-                    Status = cmbStatus.SelectedValue.ToString(),
-                    TableID = cmbTable.SelectedValue.ToString()
-                };
-                order_BUS.AddOrder(order);
+                    var table = table_BUS.GetTableById(cmbTable.SelectedValue.ToString());
+                    if (table != null)
+                    {
+                        table.Status = "Có khách";
+                        table_BUS.UpdateTable(table);
+                    }
+                }
+
                 MessageBox.Show("Thêm order thành công!");
                 loadData();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            try
+            {
                 var order = new Order
                 {
                     OrderID = int.Parse(txtID.Text),
@@ -114,11 +121,25 @@ namespace DoAn
                     TableID = cmbTable.SelectedValue.ToString()
                 };
 
+                // Cập nhật đơn hàng
                 order_BUS.UpdateOrder(order);
 
-                MessageBox.Show("Cập nhật mua hàng thành công!");
+                // Cập nhật trạng thái bàn
+                var table = table_BUS.GetTableById(cmbTable.SelectedValue.ToString());
+                if (table != null)
+                {
+                    // Giả sử "Có khách" là trạng thái khi có order và "Trống" khi không có order
+                    table.Status = cmbStatus.SelectedValue.ToString() == "Có khách" ? "Có khách" : "Trống";
+                    table_BUS.UpdateTable(table);
+                }
 
+                MessageBox.Show("Cập nhật mua hàng thành công!");
                 loadData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật: " + ex.Message);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -134,6 +155,17 @@ namespace DoAn
                     {
                         try
                         {
+                            // Lấy thông tin bàn từ Order trước khi xóa
+                            var tableID = selectedRow.Cells["TableID"].Value.ToString();
+                            var table = table_BUS.GetTableById(tableID);
+                            if (table != null)
+                            {
+                                // Cập nhật lại trạng thái bàn thành "Trống" khi xoá đơn hàng
+                                table.Status = "Trống";
+                                table_BUS.UpdateTable(table);
+                            }
+
+                            // Xoá đơn hàng
                             order_BUS.DeleteOrder(orderID);
 
                             MessageBox.Show("Đã xoá mua hàng!");
@@ -154,8 +186,8 @@ namespace DoAn
             {
                 MessageBox.Show("Vui lòng chọn mua hàng để xoá.");
             }
-
         }
+
 
         private void dgvOrders_CellClick(object sender, DataGridViewCellEventArgs e)
         {

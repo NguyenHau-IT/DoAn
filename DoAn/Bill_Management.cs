@@ -20,7 +20,8 @@ namespace DoAn
         private int selectedBillId = 0;
 
         private Order_BUS order_BUS = new Order_BUS();
-
+        
+        private CF_Table_BUS table_BUS = new CF_Table_BUS();
         public Bill_Management()
         {
             InitializeComponent();
@@ -63,6 +64,7 @@ namespace DoAn
             loadData();
             loadcmbOD();
             loadcmb();
+            cmbStatus.SelectedIndex = 1;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -104,6 +106,25 @@ namespace DoAn
 
                 bill_BUS.AddBill(bill);
 
+                // Nếu trạng thái thanh toán là "Đã thanh toán", cập nhật Order và Table
+                if (cmbStatus.SelectedValue.ToString() == "Đã thanh toán")
+                {
+                    var order = order_BUS.GetOrderById(orderDetailID);
+                    if (order != null)
+                    {
+                        order.Status = "Đã thanh toán";
+                        order_BUS.UpdateOrder(order);
+
+                        var table = table_BUS.GetTableById(order.TableID);
+                        if (table != null)
+                        {
+                            table.Status = "Trống";
+                            table_BUS.UpdateTable(table);
+                        }
+                    }
+                }
+
+                MessageBox.Show("Thêm hoá đơn thành công!");
                 loadData();
 
                 txtBillID.Clear();
@@ -113,25 +134,43 @@ namespace DoAn
             {
                 MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Kiểm tra xem có dòng nào được chọn hay không
             if (dgvBill.SelectedRows.Count > 0)
             {
                 var selectedRow = dgvBill.SelectedRows[0];
 
-                if (selectedRow.Cells["BillID"].Value != DBNull.Value && selectedRow.Cells["BillID"].Value is int billId)
+                if (selectedRow.Cells["BillID"].Value != DBNull.Value && int.TryParse(selectedRow.Cells["BillID"].Value.ToString(), out int billID))
                 {
                     var result = MessageBox.Show("Bạn có chắc chắn muốn xoá hoá đơn này?", "Xoá hoá đơn", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
                         try
                         {
-                            bill_BUS.DeleteBill(billId);
+                            // Lấy thông tin Order trước khi xóa hóa đơn
+                            var bill = bill_BUS.GetBillById(billID);
+                            if (bill != null)
+                            {
+                                var order = order_BUS.GetOrderById(bill.OrderID);
+                                if (order != null)
+                                {
+                                    // Cập nhật trạng thái Order và Table
+                                    order.Status = "Chưa thanh toán";
+                                    order_BUS.UpdateOrder(order);
+
+                                    var table = table_BUS.GetTableById(order.TableID);
+                                    if (table != null)
+                                    {
+                                        table.Status = "Có khách";
+                                        table_BUS.UpdateTable(table);
+                                    }
+                                }
+                            }
+
+                            // Xoá hóa đơn
+                            bill_BUS.DeleteBill(billID);
 
                             MessageBox.Show("Đã xoá hoá đơn!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             loadData();
@@ -149,46 +188,70 @@ namespace DoAn
             }
             else
             {
-                // Kiểm tra thêm lần nữa và thông báo chi tiết hơn nếu không có dòng được chọn
-                MessageBox.Show("Vui lòng chọn hoá đơn để xoá. Chọn một dòng trong bảng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn hoá đơn để xoá.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(txtBillID.Text, out int billID))
+            try
             {
-                MessageBox.Show("BillID phải là số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (!int.TryParse(txtBillID.Text, out int billID))
+                {
+                    MessageBox.Show("BillID phải là số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!int.TryParse(cmbOD.Text, out int orderDetailID))
+                {
+                    MessageBox.Show("OrderDetailID phải là số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!decimal.TryParse(txtTotal.Text, out decimal total))
+                {
+                    MessageBox.Show("Total phải là số thập phân!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var bill = new Bill
+                {
+                    BillID = billID,
+                    OrderID = orderDetailID,
+                    PaymentDate = dtpDate.Value,
+                    PaymentStatus = cmbStatus.SelectedValue.ToString(),
+                    Total = total
+                };
+
+                bill_BUS.UpdateBill(bill);
+
+                // Nếu trạng thái thanh toán là "Đã thanh toán", cập nhật Order và Table
+                if (cmbStatus.SelectedValue.ToString() == "Đã thanh toán")
+                {
+                    var order = order_BUS.GetOrderById(orderDetailID);
+                    if (order != null)
+                    {
+                        order.Status = "Đã thanh toán";
+                        order_BUS.UpdateOrder(order);
+
+                        var table = table_BUS.GetTableById(order.TableID);
+                        if (table != null)
+                        {
+                            table.Status = "Trống";
+                            table_BUS.UpdateTable(table);
+                        }
+                    }
+                }
+
+                MessageBox.Show("Cập nhật hoá đơn thành công!");
+                loadData();
             }
-
-            if (!int.TryParse(cmbOD.Text, out int orderDetailID))
+            catch (Exception ex)
             {
-                MessageBox.Show("OrderDetailID phải là số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("Lỗi khi cập nhật: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            if (!int.TryParse(txtTotal.Text, out int total))
-            {
-                MessageBox.Show("Total phải là số thập phân!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            var bill = new Bill
-            {
-                BillID = billID,
-                OrderID = orderDetailID,
-                PaymentDate = dtpDate.Value,
-                PaymentStatus = cmbStatus.SelectedValue.ToString(),
-                Total = total
-            };
-
-            bill_BUS.UpdateBill(bill);
-
-            MessageBox.Show("Cập nhật sản phẩm thành công!");
-
-            loadData();
         }
+
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {

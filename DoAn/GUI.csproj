@@ -68,6 +68,12 @@
     <Compile Include="Bill_Management.Designer.cs">
       <DependentUpon>Bill_Management.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bill_Statistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bill_Statistics.Designer.cs">
+      <DependentUpon>Bill_Statistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cafe_Management.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Table_Statistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table_Statistics.Designer.cs">
+      <DependentUpon>Table_Statistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_Management.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bill_Management.resx">
       <DependentUpon>Bill_Management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bill_Statistics.resx">
+      <DependentUpon>Bill_Statistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cafe_Management.resx">
       <DependentUpon>Cafe_Management.cs</DependentUpon>
@@ -242,6 +257,7 @@
   <ItemGroup>
     <Content Include="Resources\add.png" />
     <Content Include="Resources\adduser.png" />
+    <None Include="Resources\chart.png" />
     <Content Include="Resources\delete.png" />
     <Content Include="Resources\update.png" />
   </ItemGroup>

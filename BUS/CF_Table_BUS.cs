@@ -21,7 +21,8 @@ namespace BUS
                                {
                                    TableID = cf.TableID,
                                    TableName = cf.TableName,
-                                   AreaName = a.AreaName
+                                   AreaName = a.AreaName,
+                                   Status = cf.Status,
                                }; return cf_table.ToList<dynamic>();
             }
         }
@@ -52,6 +53,7 @@ namespace BUS
                 {
                     existingTable.TableName = table.TableName;
                     existingTable.AreaID = table.AreaID;
+                    existingTable.Status = table.Status;
                     context.SaveChanges();
                 }
             }

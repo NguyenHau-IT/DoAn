@@ -52,12 +52,12 @@
             this.dgv_frmCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_frmCategory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_frmCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dgv_frmCategory.Location = new System.Drawing.Point(0, 179);
-            this.dgv_frmCategory.Margin = new System.Windows.Forms.Padding(2);
+            this.dgv_frmCategory.Location = new System.Drawing.Point(0, 221);
+            this.dgv_frmCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_frmCategory.Name = "dgv_frmCategory";
             this.dgv_frmCategory.RowHeadersWidth = 51;
             this.dgv_frmCategory.RowTemplate.Height = 24;
-            this.dgv_frmCategory.Size = new System.Drawing.Size(800, 313);
+            this.dgv_frmCategory.Size = new System.Drawing.Size(1067, 385);
             this.dgv_frmCategory.TabIndex = 1;
             this.dgv_frmCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_frmCategory_CellClick);
             // 
@@ -77,69 +77,75 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(800, 174);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1067, 214);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chi tiết";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 117);
+            this.label3.Location = new System.Drawing.Point(16, 144);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 20);
+            this.label3.Size = new System.Drawing.Size(61, 25);
             this.label3.TabIndex = 17;
             this.label3.Text = "Mô tả";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 74);
+            this.label2.Location = new System.Drawing.Point(16, 91);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 20);
+            this.label2.Size = new System.Drawing.Size(89, 25);
             this.label2.TabIndex = 16;
             this.label2.Text = "Tên Loại";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 34);
+            this.label1.Location = new System.Drawing.Point(16, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
+            this.label1.Size = new System.Drawing.Size(82, 25);
             this.label1.TabIndex = 15;
             this.label1.Text = "Mã Loại";
             // 
             // txt_description
             // 
-            this.txt_description.Location = new System.Drawing.Point(87, 114);
-            this.txt_description.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_description.Location = new System.Drawing.Point(116, 140);
+            this.txt_description.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_description.Name = "txt_description";
-            this.txt_description.Size = new System.Drawing.Size(229, 26);
+            this.txt_description.Size = new System.Drawing.Size(304, 30);
             this.txt_description.TabIndex = 14;
             // 
             // txt_catename
             // 
-            this.txt_catename.Location = new System.Drawing.Point(87, 71);
-            this.txt_catename.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_catename.Location = new System.Drawing.Point(116, 87);
+            this.txt_catename.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_catename.Name = "txt_catename";
-            this.txt_catename.Size = new System.Drawing.Size(229, 26);
+            this.txt_catename.Size = new System.Drawing.Size(304, 30);
             this.txt_catename.TabIndex = 13;
             // 
             // txt_cateid
             // 
-            this.txt_cateid.Location = new System.Drawing.Point(87, 34);
-            this.txt_cateid.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_cateid.Location = new System.Drawing.Point(116, 42);
+            this.txt_cateid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_cateid.Name = "txt_cateid";
-            this.txt_cateid.Size = new System.Drawing.Size(229, 26);
+            this.txt_cateid.Size = new System.Drawing.Size(304, 30);
             this.txt_cateid.TabIndex = 12;
             // 
             // btn_out
             // 
-            this.btn_out.Location = new System.Drawing.Point(457, 75);
-            this.btn_out.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_out.Location = new System.Drawing.Point(609, 92);
+            this.btn_out.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_out.Name = "btn_out";
-            this.btn_out.Size = new System.Drawing.Size(104, 25);
+            this.btn_out.Size = new System.Drawing.Size(139, 31);
             this.btn_out.TabIndex = 11;
             this.btn_out.Text = "Thoát";
             this.btn_out.UseVisualStyleBackColor = true;
@@ -147,10 +153,10 @@
             // 
             // btn_xoa
             // 
-            this.btn_xoa.Location = new System.Drawing.Point(333, 75);
-            this.btn_xoa.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_xoa.Location = new System.Drawing.Point(444, 92);
+            this.btn_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_xoa.Name = "btn_xoa";
-            this.btn_xoa.Size = new System.Drawing.Size(104, 25);
+            this.btn_xoa.Size = new System.Drawing.Size(139, 31);
             this.btn_xoa.TabIndex = 10;
             this.btn_xoa.Text = "Xóa";
             this.btn_xoa.UseVisualStyleBackColor = true;
@@ -158,10 +164,10 @@
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(457, 36);
-            this.btn_edit.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_edit.Location = new System.Drawing.Point(609, 44);
+            this.btn_edit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(104, 25);
+            this.btn_edit.Size = new System.Drawing.Size(139, 31);
             this.btn_edit.TabIndex = 9;
             this.btn_edit.Text = "Sửa";
             this.btn_edit.UseVisualStyleBackColor = true;
@@ -169,10 +175,10 @@
             // 
             // btn_them
             // 
-            this.btn_them.Location = new System.Drawing.Point(333, 36);
-            this.btn_them.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_them.Location = new System.Drawing.Point(444, 44);
+            this.btn_them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_them.Name = "btn_them";
-            this.btn_them.Size = new System.Drawing.Size(104, 25);
+            this.btn_them.Size = new System.Drawing.Size(139, 31);
             this.btn_them.TabIndex = 8;
             this.btn_them.Text = "Thêm";
             this.btn_them.UseVisualStyleBackColor = true;
@@ -180,13 +186,14 @@
             // 
             // Category_Management
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(800, 492);
+            this.ClientSize = new System.Drawing.Size(1067, 606);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgv_frmCategory);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Category_Management";
             this.Text = "Category_Management";
             this.Load += new System.EventHandler(this.Category_Management_Load);
