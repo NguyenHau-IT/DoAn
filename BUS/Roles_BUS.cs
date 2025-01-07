@@ -35,7 +35,7 @@ namespace BUS
                 var existingRoles = context.Roles.Find(role.RoleID);
                 if (existingRoles != null)
                 {
-                    existingRoles.RoleID = role.RoleName;
+                    existingRoles.RoleName= role.RoleName;
                     context.SaveChanges();
                 }
             }

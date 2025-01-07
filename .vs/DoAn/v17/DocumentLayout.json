@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|c:\\users\\dtnhn\\source\\repos\\doan\\doan\\cafe_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|solutionrelative:doan\\cafe_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|c:\\users\\dtnhn\\source\\repos\\doan\\doan\\role_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|solutionrelative:doan\\role_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|c:\\users\\dtnhn\\source\\repos\\doan\\doan\\cafe_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|solutionrelative:doan\\cafe_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{AE26DB2B-9B6B-415A-8102-E4DE5D4790C6}|BUS\\BLL.csproj|c:\\users\\dtnhn\\source\\repos\\doan\\bus\\roles_bus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE26DB2B-9B6B-415A-8102-E4DE5D4790C6}|BUS\\BLL.csproj|solutionrelative:bus\\roles_bus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 357,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,11 +26,11 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
@@ -46,28 +46,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Cafe_Management.cs",
-              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Cafe_Management.cs",
-              "RelativeDocumentMoniker": "DoAn\\Cafe_Management.cs",
-              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Cafe_Management.cs",
-              "RelativeToolTip": "DoAn\\Cafe_Management.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQBAAAjAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Roles_BUS.cs",
+              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\BUS\\Roles_BUS.cs",
+              "RelativeDocumentMoniker": "BUS\\Roles_BUS.cs",
+              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\BUS\\Roles_BUS.cs",
+              "RelativeToolTip": "BUS\\Roles_BUS.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAewCUAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T08:31:23.44Z",
+              "WhenOpened": "2025-01-07T18:43:13.807Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Cafe_Management.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Cafe_Management.cs",
-              "RelativeDocumentMoniker": "DoAn\\Cafe_Management.cs",
-              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Cafe_Management.cs [Design]",
-              "RelativeToolTip": "DoAn\\Cafe_Management.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "Role_Management.cs",
+              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Role_Management.cs",
+              "RelativeDocumentMoniker": "DoAn\\Role_Management.cs",
+              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Role_Management.cs",
+              "RelativeToolTip": "DoAn\\Role_Management.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAcwE0AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T08:31:19.375Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-01-07T18:41:30.526Z",
+              "EditorCaption": ""
             }
           ]
         }

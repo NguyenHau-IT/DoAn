@@ -75,11 +75,12 @@ namespace DoAn
                 {
                     var role = new Role()
                     {
+                        RoleID = txtID.Text,
                         RoleName = txtRole.Text,
                     };
 
                     role_BUS.UpdateRole(role);
-                    MessageBox.Show("Product updated successfully!");
+                    MessageBox.Show("Role updated successfully!");
                     loadData();
 
                     selectedRoleId = "";

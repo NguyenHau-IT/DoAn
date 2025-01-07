@@ -126,21 +126,9 @@ namespace DoAn
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            string keyword;
-            if (txt_search.Text.GetType() == typeof(int))
-            {
-                keyword = txt_search.Text.ToString();
-            }
-            else 
-            {
-                keyword= txt_search.Text;
-            }
-
-            var result = user_BUS.GetALLUser()
-                .Where(p => p.IdentityCard.Contains(keyword) || p.FullName.Contains(keyword))
-                .ToList();
-
-            dgv_displayemployee.DataSource = result;
+            string keyword = txt_search.Text.ToString();
+                var result = user_BUS.FindByID(keyword);
+                dgv_displayemployee.DataSource = result;
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
@@ -153,8 +141,8 @@ namespace DoAn
             try
             {
                 var user = new User_BUS();
-                var selectedID = txt_username.Text;
-                var employeeName = txt_hoten.Text;
+                var selectedID = txt_idcard.Text;
+                var employeeName = txt_username.Text;
                 var employeeID = user.FindByID(selectedID);
                 if (employeeID != null)
                 {

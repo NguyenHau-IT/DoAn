@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
@@ -161,19 +162,48 @@ public dynamic GetInfor(string username)
         }
     }
 
-    public User FindByID(string id)
+        public List<dynamic> FindByID(string id)
         {
-            using (var idEmploy = new Cafe_Context())
+            using (var context = new Cafe_Context())
             {
-                return idEmploy.Users.SingleOrDefault(p => p.IdentityCard == id);
+                var users = from u in context.Users
+                            join r in context.Roles on u.RoleID equals r.RoleID
+                            where u.IdentityCard == id
+                            select new
+                            {
+                                UserName = u.UserName,
+                                Userpassword = u.Userpassword,
+                                FullName = u.FullName,
+                                Phone = u.Phone,
+                                IdentityCard = u.IdentityCard,
+                                RoleName = r.RoleName
+                            };
+
+                return users.ToList<dynamic>();
             }
         }
 
-        public User FindByName(string name)
+        public List<dynamic> FindByName(string name)
         {
             using (var nameEmploy = new Cafe_Context())
             {
-                return nameEmploy.Users.SingleOrDefault(n => n.FullName.ToLower() == name.ToLower());
+                using (var context = new Cafe_Context())
+                {
+                    var users = from u in context.Users
+                                join r in context.Roles on u.RoleID equals r.RoleID
+                                where u.UserName == name
+                                select new
+                                {
+                                    UserName = u.UserName,
+                                    Userpassword = u.Userpassword,
+                                    FullName = u.FullName,
+                                    Phone = u.Phone,
+                                    IdentityCard = u.IdentityCard,
+                                    RoleName = r.RoleName
+                                };
+
+                    return users.ToList<dynamic>();
+                }
             }
         }
     }
