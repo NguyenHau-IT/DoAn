@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|c:\\users\\dtnhn\\source\\repos\\doan\\doan\\bill_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|solutionrelative:doan\\bill_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|c:\\users\\dtnhn\\source\\repos\\doan\\doan\\cafe_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|solutionrelative:doan\\cafe_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|c:\\users\\dtnhn\\source\\repos\\doan\\doan\\bill_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|solutionrelative:doan\\bill_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|c:\\users\\dtnhn\\source\\repos\\doan\\doan\\cafe_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|solutionrelative:doan\\cafe_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,26 +47,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Bill_Management.cs",
-              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Bill_Management.cs",
-              "RelativeDocumentMoniker": "DoAn\\Bill_Management.cs",
-              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Bill_Management.cs",
-              "RelativeToolTip": "DoAn\\Bill_Management.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAD4v0IAAAAoAAAAAAAAAA==",
+              "Title": "Cafe_Management.cs",
+              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Cafe_Management.cs",
+              "RelativeDocumentMoniker": "DoAn\\Cafe_Management.cs",
+              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Cafe_Management.cs",
+              "RelativeToolTip": "DoAn\\Cafe_Management.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQBAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T16:33:07.693Z",
+              "WhenOpened": "2025-01-06T08:31:23.44Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Bill_Management.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Bill_Management.cs",
-              "RelativeDocumentMoniker": "DoAn\\Bill_Management.cs",
-              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Bill_Management.cs [Design]",
-              "RelativeToolTip": "DoAn\\Bill_Management.cs [Design]",
+              "Title": "Cafe_Management.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Cafe_Management.cs",
+              "RelativeDocumentMoniker": "DoAn\\Cafe_Management.cs",
+              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Cafe_Management.cs [Design]",
+              "RelativeToolTip": "DoAn\\Cafe_Management.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T16:33:05.323Z",
+              "WhenOpened": "2025-01-06T08:31:19.375Z",
               "EditorCaption": " [Design]"
             }
           ]

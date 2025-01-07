@@ -291,7 +291,6 @@ namespace DoAn
                         break;
 
                     case "Infor":
-                        MessageBox.Show($"Name {name}");
                         InforUser inforUser = new InforUser();
                         inforUser.Show();
                         break;
