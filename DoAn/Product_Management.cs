@@ -101,6 +101,7 @@ namespace DoAn
 
                         var product = new Product
                         {
+                            ProductID = txtProductID.Text,
                             ProductName = txtProductName.Text,
                             Price = decimal.Parse(txtPrice.Text),
                             Description = txtDescription.Text,
@@ -125,6 +126,7 @@ namespace DoAn
             {
                 var product = new Product
                 {
+                    ProductID = txtProductID.Text,
                     ProductName = txtProductName.Text,
                     Price = decimal.Parse(txtPrice.Text),
                     Description = txtDescription.Text,

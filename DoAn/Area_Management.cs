@@ -70,10 +70,11 @@ namespace DoAn
             {
                 var area = new Area
                 {
+                    AreaID = selectedAreaId,
                     AreaName = txtName.Text.Trim(),
                 };
                 area_BUS.UpdateArea(area);
-                MessageBox.Show("Cập nhật kích cỡ thành công!");
+                MessageBox.Show("Cập nhật khu vực thành công!");
 
                 loadData();
                 selectedAreaId = "";

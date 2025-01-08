@@ -46,44 +46,42 @@ namespace DoAn
             dgvThongKe.Columns["PaymentDate"].HeaderText = "Ngày thanh toán";
             dgvThongKe.Columns["PaymentStatus"].HeaderText = "Trạng thái thanh toán";
             dgvThongKe.Columns["Total"].HeaderText = "Tổng cộng";
+
+            dgvThongKe.Columns["PaymentDate"].DefaultCellStyle.Format = "dd-MM-yyyy";
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
+            List<object> bills;
+
             if (cmbStyle.SelectedIndex == 0)
             {
                 // Thống kê theo ngày
                 DateTime fromDate = dtpFrom.Value.Date;
                 DateTime toDate = dtpTo.Value.Date;
-
-                var bills = bill.GetBill(fromDate, toDate);
-                dgvThongKe.DataSource = bills; // Hiển thị dữ liệu thống kê theo ngày
+                bills = bill.GetBill(fromDate, toDate);
             }
             else if (cmbStyle.SelectedIndex == 1)
             {
                 // Thống kê theo tháng
                 int selectedMonth = dtpFrom.Value.Month;
                 int selectedYear = dtpFrom.Value.Year;
-
-                var bills = bill.GetBillByMonth(selectedMonth, selectedYear);
-                dgvThongKe.DataSource = bills; // Hiển thị dữ liệu thống kê theo tháng
+                bills = bill.GetBillByMonth(selectedMonth, selectedYear);
             }
             else if (cmbStyle.SelectedIndex == 2)
             {
                 // Thống kê theo năm
                 int selectedYear = dtpFrom.Value.Year;
-
-                var bills = bill.GetBillByYear(selectedYear);
-                dgvThongKe.DataSource = bills; // Hiển thị dữ liệu thống kê theo năm
+                bills = bill.GetBillByYear(selectedYear);
             }
             else
             {
-                // Thống kê chung (tất cả dữ liệu)
-                var bills = bill.GetALLBill();
-                dgvThongKe.DataSource = bills; // Hiển thị toàn bộ dữ liệu
+                // Thống kê tất cả
+                bills = bill.GetALLBill();
             }
+
+            dgvThongKe.DataSource = bills; // Gán dữ liệu
             loaddgv();
         }
-
     }
 }

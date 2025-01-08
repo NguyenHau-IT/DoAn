@@ -38,34 +38,6 @@ namespace DoAn
             loadData();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            var size = new Sizes
-            {
-                SizeName = txtName.Text,
-                SizePrice = Convert.ToDecimal(txtPrice.Text)
-            };
-
-            sizes_BUS.AddSize(size);
-            MessageBox.Show("Đã thêm kích cở thành công!");
-            loadData();
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (dgvSize.SelectedRows.Count > 0)
-            {
-                var selectedRow = dgvSize.SelectedRows[0];
-                string sizeName = (string)selectedRow.Cells["SizeName"].Value;
-
-                sizes_BUS.DeleteSize(sizeName);
-                MessageBox.Show("Xoá kích cở thành công!");
-                loadData();
-                txtName.Clear();
-                txtPrice.Clear();
-            }
-        }
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(selectedSizeId))
@@ -135,6 +107,53 @@ namespace DoAn
             if (result == DialogResult.Yes)
             {
                 this.Close();
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MessageBox.Show("Vui lòng nhập tên kích cỡ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrice.Text, out decimal price))
+            {
+                MessageBox.Show("Giá không hợp lệ. Vui lòng nhập số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var size = new Sizes
+            {
+                SizeName = txtName.Text.Trim(),
+                SizePrice = price
+            };
+
+            try
+            {
+                sizes_BUS.AddSize(size);
+                MessageBox.Show("Đã thêm kích cỡ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadData(); // Reload data
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm kích cỡ: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDelete_Click_1(object sender, EventArgs e)
+        {
+            if (dgvSize.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvSize.SelectedRows[0];
+                string sizeName = (string)selectedRow.Cells["SizeName"].Value;
+
+                sizes_BUS.DeleteSize(sizeName);
+                MessageBox.Show("Xoá kích cở thành công!");
+                loadData();
+                txtName.Clear();
+                txtPrice.Clear();
             }
         }
     }

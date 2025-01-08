@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -109,13 +110,14 @@ namespace BUS
             }
         }
 
-        public List<dynamic> GetBill(DateTime f, DateTime t)
+        public List<object> GetBill(DateTime f, DateTime t)
         {
             using (var context = new Cafe_Context())
             {
                 var bills = from b in context.Bills
                             join o in context.Orders on b.OrderID equals o.OrderID
-                            where b.PaymentDate >= f && b.PaymentDate <= t
+                            where DbFunctions.TruncateTime(b.PaymentDate) >= f.Date &&
+                                  DbFunctions.TruncateTime(b.PaymentDate) <= t.Date
                             select new
                             {
                                 BillID = b.BillID,
@@ -125,11 +127,11 @@ namespace BUS
                                 Total = b.Total
                             };
 
-                return bills.ToList<dynamic>();
+                return bills.ToList<object>();
             }
         }
 
-        public List<dynamic> GetBillByMonth(int month, int year)
+        public List<object> GetBillByMonth(int month, int year)
         {
             using (var context = new Cafe_Context())
             {
@@ -141,16 +143,16 @@ namespace BUS
                             {
                                 BillID = b.BillID,
                                 OrderID = o.OrderID,
-                                PaymentDate = b.PaymentDate,
+                                PaymentDate = b.PaymentDate ?? DateTime.MinValue,
                                 PaymentStatus = b.PaymentStatus,
                                 Total = b.Total
                             };
 
-                return bills.ToList<dynamic>();
+                return bills.ToList<object>();
             }
         }
 
-        public List<dynamic> GetBillByYear(int year)
+        public List<object> GetBillByYear(int year)
         {
             using (var context = new Cafe_Context())
             {
@@ -161,12 +163,12 @@ namespace BUS
                             {
                                 BillID = b.BillID,
                                 OrderID = o.OrderID,
-                                PaymentDate = b.PaymentDate,
+                                PaymentDate = b.PaymentDate ?? DateTime.MinValue,
                                 PaymentStatus = b.PaymentStatus,
                                 Total = b.Total
                             };
 
-                return bills.ToList<dynamic>();
+                return bills.ToList<object>();
             }
         }
 

@@ -23,7 +23,8 @@ namespace BUS
                                  DateCheckIn = o.DateCheckIn,
                                  DateCheckOut = o.DateCheckOut,
                                  Status = o.Status,
-                                 TableName = t.TableName
+                                 TableName = t.TableName,
+                                 TableID = o.TableID
                              };
 
                 return orders.OrderBy(o =>o.OrderID).ToList<dynamic>();

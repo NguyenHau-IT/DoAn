@@ -50,18 +50,32 @@ namespace DoAn
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtID.Text) || string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var table = new CF_Table
             {
-                TableID = txtID.Text,
-                TableName = txtName.Text,
-                AreaID = cmbArea.SelectedValue?.ToString(),
-                Status = cmbStatus.SelectedValue?.ToString()
+                TableID = txtID.Text.Trim(),
+                TableName = txtName.Text.Trim(),
+                AreaID = cmbArea.SelectedValue?.ToString() ?? "",  // Avoid null reference
+                Status = cmbStatus.Text // Avoid null reference
             };
 
-            table_BUS.AddTable(table);
-            MessageBox.Show("Đã thêm bàn thành công!");
-            loadData();
+            try
+            {
+                table_BUS.AddTable(table);
+                MessageBox.Show("Đã thêm bàn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadData(); // Reload UI
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm bàn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {

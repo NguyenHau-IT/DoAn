@@ -55,6 +55,7 @@ namespace DoAn
             dgvOrders.Columns["DateCheckOut"].HeaderText = "Giờ về";
             dgvOrders.Columns["Status"].HeaderText = "Trạng thái";
             dgvOrders.Columns["TableName"].HeaderText = "Tên bàn";
+            dgvOrders.Columns["TableID"].Visible = false;
 
             dgvOrders.Columns["DateCheckIn"].DefaultCellStyle.Format = " dd-MM-yyyy";
             dgvOrders.Columns["DateCheckOut"].DefaultCellStyle.Format = " dd-MM-yyyy";
@@ -121,14 +122,11 @@ namespace DoAn
                     TableID = cmbTable.SelectedValue.ToString()
                 };
 
-                // Cập nhật đơn hàng
                 order_BUS.UpdateOrder(order);
 
-                // Cập nhật trạng thái bàn
                 var table = table_BUS.GetTableById(cmbTable.SelectedValue.ToString());
                 if (table != null)
                 {
-                    // Giả sử "Có khách" là trạng thái khi có order và "Trống" khi không có order
                     table.Status = cmbStatus.SelectedValue.ToString() == "Có khách" ? "Có khách" : "Trống";
                     table_BUS.UpdateTable(table);
                 }
@@ -155,17 +153,14 @@ namespace DoAn
                     {
                         try
                         {
-                            // Lấy thông tin bàn từ Order trước khi xóa
                             var tableID = selectedRow.Cells["TableID"].Value.ToString();
                             var table = table_BUS.GetTableById(tableID);
                             if (table != null)
                             {
-                                // Cập nhật lại trạng thái bàn thành "Trống" khi xoá đơn hàng
                                 table.Status = "Trống";
                                 table_BUS.UpdateTable(table);
                             }
 
-                            // Xoá đơn hàng
                             order_BUS.DeleteOrder(orderID);
 
                             MessageBox.Show("Đã xoá mua hàng!");
