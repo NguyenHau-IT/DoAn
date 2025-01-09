@@ -1,20 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{AE26DB2B-9B6B-415A-8102-E4DE5D4790C6}|BUS\\BLL.csproj|c:\\users\\dtnhn\\source\\repos\\doan\\bus\\bill_bus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE26DB2B-9B6B-415A-8102-E4DE5D4790C6}|BUS\\BLL.csproj|solutionrelative:bus\\bill_bus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|c:\\users\\dtnhn\\source\\repos\\doan\\doan\\bill_statistics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|solutionrelative:doan\\bill_statistics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|c:\\users\\dtnhn\\source\\repos\\doan\\doan\\order_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20826411-16D3-4912-A851-FA0131AAC62C}|DoAn\\GUI.csproj|solutionrelative:doan\\order_management.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 357,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -47,45 +34,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Bill_BUS.cs",
-              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\BUS\\Bill_BUS.cs",
-              "RelativeDocumentMoniker": "BUS\\Bill_BUS.cs",
-              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\BUS\\Bill_BUS.cs",
-              "RelativeToolTip": "BUS\\Bill_BUS.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAiwIMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T01:17:13.114Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Bill_Statistics.cs",
-              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Bill_Statistics.cs",
-              "RelativeDocumentMoniker": "DoAn\\Bill_Statistics.cs",
-              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Bill_Statistics.cs",
-              "RelativeToolTip": "DoAn\\Bill_Statistics.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAMwD0AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T01:12:09.146Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Order_Management.cs",
-              "DocumentMoniker": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Order_Management.cs",
-              "RelativeDocumentMoniker": "DoAn\\Order_Management.cs",
-              "ToolTip": "C:\\Users\\dtnhn\\source\\repos\\DoAn\\DoAn\\Order_Management.cs",
-              "RelativeToolTip": "DoAn\\Order_Management.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAA3wCUAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T01:04:28.565Z",
-              "EditorCaption": ""
             }
           ]
         }

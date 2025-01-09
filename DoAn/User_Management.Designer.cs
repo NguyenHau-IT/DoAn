@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User_Management));
             this.btn_search = new System.Windows.Forms.Button();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -274,6 +275,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgv_displayemployee);
             this.Controls.Add(this.grp_employeeinfo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "User_Management";
             this.Text = "User_Management";
             this.Load += new System.EventHandler(this.User_Management_Load);

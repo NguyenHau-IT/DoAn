@@ -77,9 +77,9 @@ namespace DoAn
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(cmbOD.Text) || !int.TryParse(cmbOD.Text, out int orderDetailID))
+                if (string.IsNullOrWhiteSpace(cmbOD.Text) || !int.TryParse(cmbOD.Text, out int orderID))
                 {
-                    MessageBox.Show("OrderDetailID phải là số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("OrderID phải là số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -98,7 +98,7 @@ namespace DoAn
                 var bill = new Bill
                 {
                     BillID = billID,
-                    OrderID = orderDetailID,
+                    OrderID = orderID,
                     PaymentDate = dtpDate.Value,
                     PaymentStatus = cmbStatus.SelectedValue.ToString(),
                     Total = total
@@ -106,10 +106,9 @@ namespace DoAn
 
                 bill_BUS.AddBill(bill);
 
-                // Nếu trạng thái thanh toán là "Đã thanh toán", cập nhật Order và Table
                 if (cmbStatus.SelectedValue.ToString() == "Đã thanh toán")
                 {
-                    var order = order_BUS.GetOrderById(orderDetailID);
+                    var order = order_BUS.GetOrderById(orderID);
                     if (order != null)
                     {
                         order.Status = "Đã thanh toán";
@@ -149,14 +148,12 @@ namespace DoAn
                     {
                         try
                         {
-                            // Lấy thông tin Order trước khi xóa hóa đơn
                             var bill = bill_BUS.GetBillById(billID);
                             if (bill != null)
                             {
                                 var order = order_BUS.GetOrderById(bill.OrderID);
                                 if (order != null)
                                 {
-                                    // Cập nhật trạng thái Order và Table
                                     order.Status = "Chưa thanh toán";
                                     order_BUS.UpdateOrder(order);
 
@@ -168,8 +165,6 @@ namespace DoAn
                                     }
                                 }
                             }
-
-                            // Xoá hóa đơn
                             bill_BUS.DeleteBill(billID);
 
                             MessageBox.Show("Đã xoá hoá đơn!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -225,7 +220,6 @@ namespace DoAn
 
                 bill_BUS.UpdateBill(bill);
 
-                // Nếu trạng thái thanh toán là "Đã thanh toán", cập nhật Order và Table
                 if (cmbStatus.SelectedValue.ToString() == "Đã thanh toán")
                 {
                     var order = order_BUS.GetOrderById(orderDetailID);
@@ -292,7 +286,7 @@ namespace DoAn
                 DataGridViewRow row = dgvBill.Rows[e.RowIndex];
 
                     selectedBillId = Convert.ToInt32(row.Cells["BillID"].Value);
-                    txtBillID.Text = selectedBillId.ToString(); // Gán giá trị int vào TextBox
+                    txtBillID.Text = selectedBillId.ToString();
 
                 cmbOD.Text = row.Cells["OrderID"].Value?.ToString() ?? string.Empty;
 
